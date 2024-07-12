@@ -23,6 +23,7 @@ public class RoomResponse {
         this.id = id;
         this.roomType = roomType;
         this.roomPrice = roomPrice;
+//        this.roomPrice = new BigDecimal(String.valueOf(roomPrice));
     }
 
     public RoomResponse(Long id, String roomType, BigDecimal roomPrice, boolean isBooked, byte[] photoBytes, List<BookingResponse> bookings) {
