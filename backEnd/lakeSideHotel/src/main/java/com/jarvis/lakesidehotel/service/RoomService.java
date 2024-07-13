@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.nio.ByteBuffer;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -31,5 +32,10 @@ public class RoomService implements IRoomService {
         }
         return roomRepository.save(room);
 
+    }
+
+    @Override
+    public List<String> getAllRoomTypes() {
+        return roomRepository.findDistinctRoomTypes();
     }
 }

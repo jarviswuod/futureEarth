@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { addRoom } from "../utils/ApiFuctions";
+import RoomTypeSelector from "../common/RoomTypeSelector";
 
 const AddRoom = () => {
   const [newRoom, setNewRoom] = useState({
@@ -17,11 +18,7 @@ const AddRoom = () => {
     let value = e.target.value;
 
     if (name === "roomPrice") {
-      if (!isNaN(value)) {
-        value.parseInt(value);
-      } else {
-        value = "";
-      }
+      value = !isNaN(value) ? parseInt(value) : "";
     }
     setNewRoom({ ...newRoom, [name]: value });
   };
@@ -31,6 +28,7 @@ const AddRoom = () => {
     setNewRoom({ ...newRoom, photo: selectedImage });
     setImagePreview(URL.createObjectURL(selectedImage));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -50,6 +48,11 @@ const AddRoom = () => {
     } catch (error) {
       setErrorMessage(error.message);
     }
+
+    setTimeout(() => {
+      setSuccessMessage("");
+      setErrorMessage("");
+    }, 3000);
   };
 
   return (
@@ -58,13 +61,27 @@ const AddRoom = () => {
         <div className="row justify-content-center">
           <div className="col-md-8 col-lg-6">
             <h2 className="mt-5 mb-2">Add a new room</h2>
+            {successMessage && (
+              <div className="alert alert-success fad e show">
+                {successMessage}
+              </div>
+            )}
+
+            {errorMessage && (
+              <div className="alert alert-danger fad e show">
+                {errorMessage}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="roomType" className="form-label">
                   Room Type
                 </label>
-                <div> </div>
+                <RoomTypeSelector
+                  handleRoomInputChange={handleRoomInputChange}
+                  newRoom={newRoom}
+                />
               </div>
 
               <div className="mb-3">
@@ -72,7 +89,7 @@ const AddRoom = () => {
                   Room Price
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   required
                   id="roomPrice"
@@ -101,6 +118,12 @@ const AddRoom = () => {
                     className="mb-3"
                   />
                 )}
+              </div>
+
+              <div className="d-grid d-md-flex mt-2">
+                <button className="btn btn-outlise-primary ml-5">
+                  Save room
+                </button>
               </div>
             </form>
           </div>

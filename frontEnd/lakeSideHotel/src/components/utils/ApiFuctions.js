@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhot:8080",
+  baseURL: "http://localhost:8080",
 });
 
 // This function adds a new room to the database
@@ -13,19 +13,20 @@ export async function addRoom(photo, roomType, roomPrice) {
 
   const response = await api.post("/rooms/add/new-room", formData);
 
-  if (response.status === 201) {
-    return true;
-  } else {
-    return false;
-  }
+  return response.status === 201;
+  // if (response.status === 201) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
 }
 
-// This function gets all room-type from the database
+// This function gets all room type from the database
 export async function getRoomTypes() {
   try {
-    const response = await api.get("/rooms/room-types");
+    const response = await api.get("/rooms/room/types");
     return response.data;
   } catch (error) {
-    throw new Error("Error fetching room types");
+    throw new Error(`Error fetching room types`);
   }
 }
