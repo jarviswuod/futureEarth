@@ -53,8 +53,9 @@ public class RoomService implements IRoomService {
         if(theRoom.isEmpty()){
             throw new ResourceNotFoundException("Sorry, Room not found!");
         }
+
         Blob photoBlob = theRoom.get().getPhoto();
-        if(photoBlob == null) return photoBlob.getBytes(1, (int) photoBlob.length());
+        if(photoBlob != null) return photoBlob.getBytes(1, (int) photoBlob.length());
         return null;
     }
 }

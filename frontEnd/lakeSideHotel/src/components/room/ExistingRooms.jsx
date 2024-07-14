@@ -53,10 +53,6 @@ const ExistingRooms = () => {
   const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
   const currentRooms = filteredRooms.slice(indexOfFirstRoom, indexOfLastRoom);
 
-  console.log(indexOfLastRoom);
-  console.log(indexOfFirstRoom);
-  console.log(currentRooms);
-
   return (
     <>
       {isLoading ? (
