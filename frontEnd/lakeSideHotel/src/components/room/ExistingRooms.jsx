@@ -4,7 +4,8 @@ import RoomFilter from "../common/RoomFilter";
 import RoomPaginator from "../common/RoomPaginator";
 import Col from "react-bootstrap/Col";
 import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const ExistingRooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -112,6 +113,7 @@ const ExistingRooms = () => {
                           <FaEdit />
                         </span>
                       </Link>
+
                       <button
                         className="btn btn-danger btn-sm"
                         onClick={() => handleDelete(room.id)}

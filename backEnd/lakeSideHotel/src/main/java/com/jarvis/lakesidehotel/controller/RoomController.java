@@ -8,6 +8,7 @@ import com.jarvis.lakesidehotel.response.RoomResponse;
 import com.jarvis.lakesidehotel.service.BookingService;
 import com.jarvis.lakesidehotel.service.IRoomService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -62,6 +63,14 @@ public class RoomController {
         }
         return ResponseEntity.ok(roomResponses);
     }
+
+    //    DELETE ROOM FUNCTIONALITY
+    @DeleteMapping("/delete/room/{roomId}")
+    public ResponseEntity<RoomResponse> deleteRoom(@PathVariable Long roomId) {
+        roomService.deleteRoom(roomId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 
     private RoomResponse getRoomResponse(Room room) {
         List<BookedRoom> bookings = getAllBookingsByRoomId(room.getId());
