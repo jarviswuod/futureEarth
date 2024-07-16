@@ -1,6 +1,7 @@
 package com.jarvis.lakesidehotel.controller;
 
 import com.jarvis.lakesidehotel.exception.PhotoRetrievalException;
+import com.jarvis.lakesidehotel.exception.ResourceNotFoundException;
 import com.jarvis.lakesidehotel.model.BookedRoom;
 import com.jarvis.lakesidehotel.model.Room;
 import com.jarvis.lakesidehotel.response.BookingResponse;
@@ -14,11 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.apache.tomcat.util.codec.binary.Base64;
 
+import javax.sql.rowset.serial.SerialBlob;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -29,11 +34,7 @@ public class RoomController {
     private final BookingService bookingService;
 
     @PostMapping("/add/new-room")
-    public ResponseEntity<RoomResponse> addNewRoom(
-            @RequestParam("photo") MultipartFile photo,
-            @RequestParam("roomType") String roomType,
-            @RequestParam("roomPrice") BigDecimal roomPrice
-    ) throws SQLException {
+    public ResponseEntity<RoomResponse> addNewRoom(@RequestParam("photo") MultipartFile photo, @RequestParam("roomType") String roomType, @RequestParam("roomPrice") BigDecimal roomPrice) throws SQLException {
         Room savedRoom = roomService.addNewRoom(photo, roomType, roomPrice);
         RoomResponse response = new RoomResponse(savedRoom.getId(), savedRoom.getRoomType(), savedRoom.getRoomPrice());
         return ResponseEntity.ok(response);
@@ -69,6 +70,31 @@ public class RoomController {
     public ResponseEntity<RoomResponse> deleteRoom(@PathVariable Long roomId) {
         roomService.deleteRoom(roomId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+
+    //    UPDATING ROOM FUNCTIONALITY
+    @PutMapping("/update/{roomId}")
+    public ResponseEntity<RoomResponse> updateRoom(@PathVariable Long roomId, @RequestParam(required = false) String roomType, @RequestParam(required = false) MultipartFile photo, @RequestParam(required = false) BigDecimal roomPrice) throws IOException, SQLException {
+        byte[] photoBytes = photo != null && !photo.isEmpty() ? photo.getBytes() : roomService.getRoomPhotoByRoomId(roomId);
+        Blob photoBlob = photoBytes != null && photoBytes.length > 0 ? new SerialBlob(photoBytes) : null;
+
+        Room theRoom = roomService.updateRoom(roomId, roomType, roomPrice, photoBytes);
+        theRoom.setPhoto(photoBlob);
+        RoomResponse response = getRoomResponse(theRoom);
+
+        return ResponseEntity.ok(response);
+    }
+
+    //    GETTING A ROOM FUNCTIONALITY
+    @GetMapping("/room/{roomId}")
+    public ResponseEntity<Optional<RoomResponse>> getRoomById(@PathVariable Long roomId) {
+        System.out.println(12121212);
+        Optional<Room> theRoom = roomService.getRoomById(roomId);
+        return theRoom.map(room -> {
+            RoomResponse roomResponse = getRoomResponse(room);
+            return ResponseEntity.ok(Optional.of(roomResponse));
+        }).orElseThrow(() -> new ResourceNotFoundException("Room not found"));
     }
 
 

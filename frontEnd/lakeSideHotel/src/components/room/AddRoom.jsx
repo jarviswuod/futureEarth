@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { addRoom } from "../utils/ApiFuctions";
 import RoomTypeSelector from "../common/RoomTypeSelector";
+import { useNavigate } from "react-router-dom";
 
 const AddRoom = () => {
+  const navigate = useNavigate();
   const [newRoom, setNewRoom] = useState({
     photo: null,
     roomType: "",
@@ -50,9 +52,10 @@ const AddRoom = () => {
     }
 
     setTimeout(() => {
+      navigate("/existing-rooms");
       setSuccessMessage("");
       setErrorMessage("");
-    }, 3000);
+    }, 2000);
   };
 
   return (
@@ -62,15 +65,13 @@ const AddRoom = () => {
           <div className="col-md-8 col-lg-6">
             <h2 className="mt-5 mb-2">Add a new room</h2>
             {successMessage && (
-              <div className="alert alert-success fad e show">
+              <div className="alert alert-success fade show">
                 {successMessage}
               </div>
             )}
 
             {errorMessage && (
-              <div className="alert alert-danger fad e show">
-                {errorMessage}
-              </div>
+              <div className="alert alert-danger fade show">{errorMessage}</div>
             )}
 
             <form onSubmit={handleSubmit}>

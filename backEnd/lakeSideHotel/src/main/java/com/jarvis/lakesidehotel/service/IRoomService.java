@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 //@Service
 public interface IRoomService {
@@ -18,4 +19,8 @@ public interface IRoomService {
     byte[] getRoomPhotoByRoomId(Long roomId) throws SQLException;
 
     void deleteRoom(Long roomId);
+
+    Room updateRoom(Long roomId, String roomType, BigDecimal roomPrice, byte[] photoBytes) throws SQLException;
+
+    Optional<Room> getRoomById(Long roomId);
 }
