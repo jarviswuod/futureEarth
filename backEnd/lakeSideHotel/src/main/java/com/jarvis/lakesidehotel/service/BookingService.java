@@ -1,7 +1,10 @@
 package com.jarvis.lakesidehotel.service;
 
+
+import com.jarvis.lakesidehotel.exception.InvalidBookingRequestException;
 import com.jarvis.lakesidehotel.model.BookedRoom;
 import com.jarvis.lakesidehotel.model.Room;
+import com.jarvis.lakesidehotel.repository.BookingRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,47 +14,72 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BookingService implements IRoomService{
+public class BookingService implements IBookingService {
+    private final RoomService roomService;
+    private BookingRepository bookingRepository;
+
+    public BookingService(RoomService roomService) {
+        this.roomService = roomService;
+    }
+
+    @Override
+    public List<BookedRoom> getAllBookings() {
+        return bookingRepository.findAll();
+    }
+
     public List<BookedRoom> getAllBookingsByRoomId(Long roomId) {
-        return null;
+        return bookingRepository.findByRoomId(roomId);
     }
 
     @Override
-    public Room addNewRoom(MultipartFile photo, String roomType, BigDecimal roomPrice) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public List<String> getAllRoomTypes() {
-        return List.of();
-    }
-
-    @Override
-    public List<Room> getAllRooms() {
-        return List.of();
-    }
-
-    @Override
-    public byte[] getRoomPhotoByRoomId(Long roomId) throws SQLException {
-        return new byte[0];
-    }
-
-    @Override
-    public void deleteRoom(Long roomId) {
+    public void cancelBooking(Long bookingId) {
+        bookingRepository.deleteById(bookingId);
 
     }
 
     @Override
-    public Room updateRoom(Long roomId, String roomType, BigDecimal roomPrice, byte[] photoBytes) throws SQLException {
-        return null;
+    public String saveBooking(Long roomId, BookedRoom bookingRequest) {
+        if (bookingRequest.getCheckOutDate().isBefore(bookingRequest.getCheckInDate())) {
+            throw new InvalidBookingRequestException("Check out date must be after check out date");
+        }
+        Room room = roomService.getRoomById(roomId).get();
+        List<BookedRoom> existingBookings = room.getBookings();
+        boolean roomIsAvailable = roomIsAvailable(bookingRequest, existingBookings);
+        if (!roomIsAvailable) {
+            room.addBooking(bookingRequest);
+            bookingRepository.save(bookingRequest);
+        } else {
+            throw new InvalidBookingRequestException("Sorry, This room is not available for the selected date!");
+        }
+        return bookingRequest.getBookingConfirmationCode();
     }
 
+
     @Override
-    public Optional<Object> getRoomById(Long roomId) {
-        return Optional.empty();
+    public BookedRoom findByBookingConfirmationCode(String confirmationCode) {
+        return bookingRepository.findByBookingConfirmationCode(confirmationCode);
     }
-//    @Override
-//    public Room getRoomById(Long roomId) {
-//        return Optional.empty();
-//    }
+
+    private boolean roomIsAvailable(BookedRoom bookingRequest, List<BookedRoom> existingBookings) {
+        return existingBookings.stream()
+                .noneMatch(existingBooking ->
+                        bookingRequest.getCheckInDate().equals(existingBooking.getCheckInDate())
+                                || bookingRequest.getCheckOutDate().isBefore(existingBooking.getCheckOutDate())
+
+                                || (bookingRequest.getCheckInDate().isAfter(existingBooking.getCheckInDate())
+                                && bookingRequest.getCheckInDate().isBefore(existingBooking.getCheckOutDate()))
+
+                                || (bookingRequest.getCheckInDate().isBefore(existingBooking.getCheckInDate())
+                                && bookingRequest.getCheckOutDate().equals(existingBooking.getCheckOutDate()))
+
+                                || (bookingRequest.getCheckInDate().isBefore(existingBooking.getCheckInDate())
+                                && bookingRequest.getCheckOutDate().isAfter(existingBooking.getCheckOutDate()))
+
+                                || (bookingRequest.getCheckInDate().equals(existingBooking.getCheckOutDate())
+                                && bookingRequest.getCheckOutDate().equals(existingBooking.getCheckInDate()))
+
+                                || (bookingRequest.getCheckInDate().equals(existingBooking.getCheckOutDate())
+                                && bookingRequest.getCheckOutDate().equals(bookingRequest.getCheckInDate()))
+                );
+    }
 }

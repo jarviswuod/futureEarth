@@ -22,5 +22,5 @@ public interface IRoomService {
 
     Room updateRoom(Long roomId, String roomType, BigDecimal roomPrice, byte[] photoBytes) throws SQLException;
 
-    Optional<Object> getRoomById(Long roomId);
+    Optional<Room> getRoomById(Long roomId);
 }

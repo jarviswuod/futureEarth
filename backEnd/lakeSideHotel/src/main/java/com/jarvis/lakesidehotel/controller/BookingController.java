@@ -1,7 +1,6 @@
 package com.jarvis.lakesidehotel.controller;
 
 import com.jarvis.lakesidehotel.exception.InvalidBookingRequestException;
-import com.jarvis.lakesidehotel.exception.ResourceNotFoundException;
 import com.jarvis.lakesidehotel.model.BookedRoom;
 import com.jarvis.lakesidehotel.model.Room;
 import com.jarvis.lakesidehotel.response.BookingResponse;
@@ -65,22 +64,18 @@ public class BookingController {
         bookingService.cancelBooking(bookingId);
     }
 
-//    private BookingResponse getBookingResponse(BookedRoom booking) {
-//    }
 
+    public BookingResponse getBookingResponse(BookedRoom booking) {
+        Optional<Room> theRoom = roomService.getRoomById(booking.getRoom().getId());
+        RoomResponse room = new RoomResponse(theRoom.get().getId(),
+                theRoom.get().getRoomType(),
+                theRoom.get().getRoomPrice());
 
-//    public BookingResponse getBookingResponse(BookedRoom booking) {
-//        Optional<Object> theRoom = roomService.getRoomById(booking.getRoom().getId());
-////        Room theRoom = roomService.getRoomById(booking.getRoom().getId().get());
-////        Room theRoom = roomService.getRoomById(booking.getRoom().getId());
-//        RoomResponse room = new RoomResponse(theRoom.getId(),
-//                theRoom.getRoomType(),
-//                theRoom.getRoomPrice());
-//        return new BookingResponse(
-//                booking.getBookingId(), booking.getCheckInDate(),
-//                booking.getCheckOutDate(), booking.getGuestFullName(),
-//                booking.getGuestEmail(), booking.getNumberOfAdults(),
-//                booking.getNumberOfChildren(), booking.getTotalNumberOfGuests(),
-//                booking.getBookingConfirmationCode(), room);
-//    }
+        return new BookingResponse(
+                booking.getBookingId(), booking.getCheckInDate(),
+                booking.getCheckOutDate(), booking.getGuestFullName(),
+                booking.getGuestEmail(), booking.getNumberOfAdults(),
+                booking.getNumberOfChildren(), booking.getTotalNumberOfGuests(),
+                booking.getBookingConfirmationCode(), room);
+    }
 }
