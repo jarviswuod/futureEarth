@@ -77,14 +77,14 @@ public class RoomService implements IRoomService {
             try {
                 room.setPhoto(new SerialBlob(photoBytes));
             } catch (SQLException exception) {
-                throw new InternalServerException("Sorry, Problem occured while updating photo!");
+                throw new InternalServerException("Sorry, Problem occurred while updating photo!");
             }
         }
         return roomRepository.save(room);
     }
 
     @Override
-    public Optional<Room> getRoomById(Long roomId) {
+    public Optional<Object> getRoomById(Long roomId) {
 //        return Optional.of(roomRepository.findById(roomId).get());
         return roomRepository.findById(roomId);
     }

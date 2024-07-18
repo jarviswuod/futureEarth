@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.apache.tomcat.util.codec.binary.Base64;
 
 import javax.sql.rowset.serial.SerialBlob;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Blob;
@@ -89,7 +88,6 @@ public class RoomController {
     //    GETTING A ROOM FUNCTIONALITY
     @GetMapping("/room/{roomId}")
     public ResponseEntity<Optional<RoomResponse>> getRoomById(@PathVariable Long roomId) {
-        System.out.println(12121212);
         Optional<Room> theRoom = roomService.getRoomById(roomId);
         return theRoom.map(room -> {
             RoomResponse roomResponse = getRoomResponse(room);
@@ -124,4 +122,3 @@ public class RoomController {
         return bookingService.getAllBookingsByRoomId(roomId);
     }
 }
- 
