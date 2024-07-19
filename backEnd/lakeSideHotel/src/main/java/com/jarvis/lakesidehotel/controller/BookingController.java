@@ -21,6 +21,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/bookings")
+@CrossOrigin
 public class BookingController {
     private final IBookingService bookingService;
     private final IRoomService roomService;

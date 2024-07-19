@@ -1,17 +1,12 @@
 package com.jarvis.lakesidehotel.service;
 
-
 import com.jarvis.lakesidehotel.exception.InvalidBookingRequestException;
 import com.jarvis.lakesidehotel.model.BookedRoom;
 import com.jarvis.lakesidehotel.model.Room;
 import com.jarvis.lakesidehotel.repository.BookingRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.math.BigDecimal;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BookingService implements IBookingService {
