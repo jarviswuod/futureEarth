@@ -13,6 +13,8 @@ import AddRoom from "./components/room/AddRoom";
 import RoomListing from "./components/room/RoomListing";
 import NotFoundPage from "./components/common/NotFoundPage";
 import Admin from "./components/admin/Admin";
+import CheckOut from "./components/bookings/CheckOut";
+import BookingSuccess from "./components/bookings/BookingSuccess";
 
 function App() {
   const router = createBrowserRouter(
@@ -22,7 +24,10 @@ function App() {
         <Route path="/existing-rooms" element={<ExistingRooms />} />
         <Route path="/edit-room/:id" element={<EditRoom />} />
         <Route path="/add-room" element={<AddRoom />} />
+        <Route path="/book-room/:id" element={<CheckOut />} />
         <Route path="/browse-all-rooms" element={<RoomListing />} />
+        <Route path="/booking-success" element={<BookingSuccess />} />
+
         <Route path="/admin" element={<Admin />} />
 
         <Route path="*" element={<NotFoundPage />} />
