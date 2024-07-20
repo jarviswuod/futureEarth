@@ -1,12 +1,6 @@
 import React, { useState, useParams, useEffect, useNavigate } from "react";
 
-import {
-  Form,
-  FormControl,
-  FormGroup,
-  FormLabel,
-  FormControlFeedback,
-} from "react-bootstrap";
+import { Form, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 
 import moment from "moment";
 import { bookRoom } from "../utils/ApiFuctions";
