@@ -1,5 +1,7 @@
-import React, { useEffect, useState, useNavigate } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import { Button } from "react-bootstrap";
 
 const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
   const checkInDate = moment(booking.checkInDate);
@@ -12,6 +14,7 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
 
   const handleConfirmBooking = () => {
     setIsProcessingPayment(true);
+
     setTimeout(() => {
       setIsProcessingPayment(false);
       setIsBookingConfirmed(true);
@@ -20,7 +23,7 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
 
   useEffect(() => {
     if (isBookingConfirmed) {
-      navigate("/booking-success");
+      onConfirm();
     }
   }, [isBookingConfirmed, navigate]);
 
@@ -29,7 +32,7 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
       <h4>Reservation Summary</h4>
 
       <p>
-        FullName : <strong>{booking.guestName}</strong>
+        FullName : <strong>{booking.guestFullName}</strong>
       </p>
       <p>
         Email : <strong>{booking.guestEmail}</strong>
@@ -55,10 +58,10 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
         <strong>Children : {booking.numberOfChildren}</strong>
       </div>
 
-      {payment > 0 ? (
+      {payment() > 0 ? (
         <>
           <p>
-            Total payment: <strong>${payment}</strong>
+            Total payment: <strong>${payment()}</strong>
           </p>
           {isFormValid && !isBookingConfirmed ? (
             <Button variant="sucess" onClick={handleConfirmBooking}>
@@ -81,13 +84,14 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
             <div className="d-flex justify-content-center aligh-items-center">
               <div className="spinner-border text-primary" role="status">
                 <span className="sr-only">Loading</span>
+                <span>Loading</span>
               </div>
             </div>
           ) : null}
         </>
       ) : (
         <p className="text-danger">
-          Check-out date must be after chack in date.
+          Check-out date must be after check in date.
         </p>
       )}
     </div>

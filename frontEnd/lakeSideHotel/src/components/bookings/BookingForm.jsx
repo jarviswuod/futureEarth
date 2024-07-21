@@ -1,9 +1,10 @@
-import React, { useState, useParams, useEffect, useNavigate } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { Form, FormControl, FormGroup, FormLabel } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 import moment from "moment";
-import { bookRoom } from "../utils/ApiFuctions";
+import { bookRoom, getRoomById } from "../utils/ApiFuctions";
 import BookingSummary from "./BookingSummary";
 
 const BookingForm = () => {
@@ -36,8 +37,9 @@ const BookingForm = () => {
 
   const getRoomPriceById = async (roomId) => {
     try {
-      const response = await getRoomPriceById(roomId);
-      setRoomPrice(response.roomPrice);
+      const room = await getRoomById(roomId);
+      setRoomInfo(room);
+      setRoomPrice(room.roomPrice);
     } catch (error) {
       throw new Error(error);
     }
@@ -45,13 +47,14 @@ const BookingForm = () => {
 
   useEffect(() => {
     getRoomPriceById(roomId);
-  }, [roomId]);
+  }, [booking.checkInDate, booking.checkOutDate]);
 
   const calculatePayment = () => {
     const checkInDate = moment(booking.checkInDate);
     const checkOutDate = moment(booking.checkOutDate);
-    const diffInDays = checkOutDate.diff(checkInDate);
+    const diffInDays = checkOutDate.diff(checkInDate, "days");
     const price = roomPrice ? roomPrice : 0;
+
     return diffInDays * price;
   };
 
@@ -63,10 +66,11 @@ const BookingForm = () => {
   };
 
   const isCheckOutDateValid = () => {
+    calculatePayment();
     if (
       !moment(booking.checkOutDate).isSameOrAfter(moment(booking.checkInDate))
     ) {
-      setErrorMessage("Chesk-out date must come before check in date");
+      setErrorMessage("Check-out date must come before check in date");
       return false;
     } else {
       setErrorMessage("");
@@ -93,10 +97,10 @@ const BookingForm = () => {
     try {
       const confirmationCode = await bookRoom(roomId, booking);
       setIsSubmitted(true);
-      navigate("/", { state: { message: confirmationCode } });
+      navigate("/booking-success", { state: { message: confirmationCode } });
     } catch (error) {
       setErrorMessage(error.message);
-      navigate("/", { state: { error: errorMessage } });
+      navigate("/booking-success", { state: { error: errorMessage } });
     }
   };
 
@@ -108,9 +112,9 @@ const BookingForm = () => {
             <div className="card card-body mt-5">
               <h4 className="card card-title">Reserve room</h4>
               <Form noValidate validated={isValidated} onSubmit={handleSubmit}>
-                <FormGroup>
-                  <FormLabel htmlFor="guestFullName">Full Name : </FormLabel>
-                  <FormControl
+                <Form.Group>
+                  <Form.Label htmlFor="guestFullName">Full Name : </Form.Label>
+                  <Form.Control
                     required
                     type="text"
                     id="guestFullName"
@@ -120,14 +124,14 @@ const BookingForm = () => {
                     onChange={handleInputChange}
                   />
 
-                  <FormControlFeedback type="invalid">
+                  <Form.Control.Feedback type="invalid">
                     Please enter your fullName
-                  </FormControlFeedback>
-                </FormGroup>
+                  </Form.Control.Feedback>
+                </Form.Group>
 
-                <FormGroup>
-                  <FormLabel htmlFor="guestEmail">Email : </FormLabel>
-                  <FormControl
+                <Form.Group>
+                  <Form.Label htmlFor="guestEmail">Email : </Form.Label>
+                  <Form.Control
                     required
                     type="email"
                     id="guestEmail"
@@ -137,19 +141,19 @@ const BookingForm = () => {
                     onChange={handleInputChange}
                   />
 
-                  <FormControlFeedback type="invalid">
+                  <Form.Control.Feedback type="invalid">
                     Please enter your Email address
-                  </FormControlFeedback>
-                </FormGroup>
+                  </Form.Control.Feedback>
+                </Form.Group>
 
                 <fieldset style={{ border: "2px" }}>
                   <legend>Loadging period</legend>
                   <div className="row">
                     <div className="col-6">
-                      <FormLabel htmlFor="checkInDate">
+                      <Form.Label htmlFor="checkInDate">
                         Check-In Date :{" "}
-                      </FormLabel>
-                      <FormControl
+                      </Form.Label>
+                      <Form.Control
                         required
                         type="date"
                         id="checkInDate"
@@ -159,16 +163,16 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                       />
 
-                      <FormControlFeedback type="invalid">
+                      <Form.Control.Feedback type="invalid">
                         Please select a check-in-date
-                      </FormControlFeedback>
+                      </Form.Control.Feedback>
                     </div>
 
                     <div className="col-6">
-                      <FormLabel htmlFor="checkOutDate">
+                      <Form.Label htmlFor="checkOutDate">
                         Check-out Date :{" "}
-                      </FormLabel>
-                      <FormControl
+                      </Form.Label>
+                      <Form.Control
                         required
                         type="date"
                         id="checkOutDate"
@@ -178,9 +182,9 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                       />
 
-                      <FormControlFeedback type="invalid">
+                      <Form.Control.Feedback type="invalid">
                         Please select a check-out-date
-                      </FormControlFeedback>
+                      </Form.Control.Feedback>
                     </div>
 
                     {errorMessage && (
@@ -195,8 +199,10 @@ const BookingForm = () => {
                   <legend>Number of Guest</legend>
                   <div className="row">
                     <div className="col-6">
-                      <FormLabel htmlFor="numberOfAdults">Adults : </FormLabel>
-                      <FormControl
+                      <Form.Label htmlFor="numberOfAdults">
+                        Adults :{" "}
+                      </Form.Label>
+                      <Form.Control
                         required
                         type="number"
                         id="numberOfAdults"
@@ -207,18 +213,18 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                       />
 
-                      <FormControlFeedback type="invalid">
+                      <Form.Control.Feedback type="invalid">
                         Please select at least one adult.
-                      </FormControlFeedback>
+                      </Form.Control.Feedback>
                     </div>
                   </div>
 
                   <div className="row">
                     <div className="col-6">
-                      <FormLabel htmlFor="numberOfChildren">
+                      <Form.Label htmlFor="numberOfChildren">
                         Children :
-                      </FormLabel>
-                      <FormControl
+                      </Form.Label>
+                      <Form.Control
                         required
                         type="number"
                         id="numberOfChildren"
@@ -229,9 +235,9 @@ const BookingForm = () => {
                         onChange={handleInputChange}
                       />
 
-                      <FormControlFeedback type="invalid">
+                      <Form.Control.Feedback type="invalid">
                         Please select number of children
-                      </FormControlFeedback>
+                      </Form.Control.Feedback>
                     </div>
                   </div>
                 </fieldset>

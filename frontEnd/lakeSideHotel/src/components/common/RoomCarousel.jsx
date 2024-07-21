@@ -20,12 +20,13 @@ const RoomCarousel = () => {
   ]);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  // const [data, setData] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     getAllRooms()
       .then((data) => {
-        setData(data);
+        setRooms(data);
         setIsLoading(false);
       })
       .catch((error) => {

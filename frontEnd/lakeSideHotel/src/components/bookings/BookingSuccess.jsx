@@ -1,4 +1,6 @@
-import React, { useLocation } from "react";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import Header from "../common/Header";
 
 const BookingSuccess = () => {
   const location = useLocation();
@@ -7,7 +9,7 @@ const BookingSuccess = () => {
   return (
     <div>
       <div className="container">
-        <Headers title="Booking Success" />
+        <Header title="Booking Success" />
         <div className="mt-5">
           {message ? (
             <div>
