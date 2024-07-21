@@ -34,7 +34,6 @@ public class RoomService implements IRoomService {
             room.setPhoto(photoBlob);
         }
         return roomRepository.save(room);
-
     }
 
     @Override

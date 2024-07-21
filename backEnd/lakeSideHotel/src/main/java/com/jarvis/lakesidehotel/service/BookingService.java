@@ -11,10 +11,11 @@ import java.util.List;
 @Service
 public class BookingService implements IBookingService {
     private final RoomService roomService;
-    private BookingRepository bookingRepository;
+    private final BookingRepository bookingRepository;
 
-    public BookingService(RoomService roomService) {
+    public BookingService(RoomService roomService, BookingRepository bookingRepository) {
         this.roomService = roomService;
+        this.bookingRepository = bookingRepository;
     }
 
     @Override
@@ -29,9 +30,8 @@ public class BookingService implements IBookingService {
     @Override
     public void cancelBooking(Long bookingId) {
         bookingRepository.deleteById(bookingId);
-
     }
-
+ 
     @Override
     public String saveBooking(Long roomId, BookedRoom bookingRequest) {
         if (bookingRequest.getCheckOutDate().isBefore(bookingRequest.getCheckInDate())) {
@@ -40,7 +40,8 @@ public class BookingService implements IBookingService {
         Room room = roomService.getRoomById(roomId).get();
         List<BookedRoom> existingBookings = room.getBookings();
         boolean roomIsAvailable = roomIsAvailable(bookingRequest, existingBookings);
-        if (!roomIsAvailable) {
+
+        if (roomIsAvailable) {
             room.addBooking(bookingRequest);
             bookingRepository.save(bookingRequest);
         } else {
