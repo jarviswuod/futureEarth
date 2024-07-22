@@ -33,7 +33,7 @@ public class RoomController {
     private final BookingService bookingService;
 
     @PostMapping("/add/new-room")
-    public ResponseEntity<RoomResponse> addNewRoom(@RequestParam("photo") MultipartFile photo, @RequestParam("roomType") String roomType, @RequestParam("roomPrice") BigDecimal roomPrice) throws SQLException {
+    public ResponseEntity<RoomResponse> addNewRoom(@RequestParam("photo") MultipartFile photo, @RequestParam("roomType") String roomType, @RequestParam("roomPrice") BigDecimal roomPrice) throws SQLException, IOException {
         Room savedRoom = roomService.addNewRoom(photo, roomType, roomPrice);
         RoomResponse response = new RoomResponse(savedRoom.getId(), savedRoom.getRoomType(), savedRoom.getRoomPrice());
         return ResponseEntity.ok(response);
@@ -58,7 +58,6 @@ public class RoomController {
                 RoomResponse roomResponse = getRoomResponse(room);
                 roomResponse.setPhoto(base64Photo);
                 roomResponses.add(roomResponse);
-
             }
         }
         return ResponseEntity.ok(roomResponses);
@@ -95,16 +94,7 @@ public class RoomController {
         }).orElseThrow(() -> new ResourceNotFoundException("Room not found"));
     }
 
-
     private RoomResponse getRoomResponse(Room room) {
-        List<BookedRoom> bookings = getAllBookingsByRoomId(room.getId());
-//        List<BookingResponse> bookingInfo = bookings.stream().map(booking ->
-//                        new BookingResponse(
-//                                booking.getBookingId(),
-//                                booking.getCheckInDate(),
-//                                booking.getCheckOutDate(),
-//                                booking.getBookingConfirmationCode()))
-//                .toList();
         byte[] photoBytes = null;
         Blob photoBlob = room.getPhoto();
         if (photoBlob != null) {
@@ -114,9 +104,31 @@ public class RoomController {
                 throw new PhotoRetrievalException("Error retrieving photo");
             }
         }
-//        return new RoomResponse(room.getId(), room.getRoomType(), room.getRoomPrice(), room.isBooked(), photoBytes, bookingInfo);
         return new RoomResponse(room.getId(), room.getRoomType(), room.getRoomPrice(), room.isBooked(), photoBytes);
     }
+
+
+//    private RoomResponse getRoomResponse(Room room) {
+//        List<BookedRoom> bookings = getAllBookingsByRoomId(room.getId());
+////        List<BookingResponse> bookingInfo = bookings.stream().map(booking ->
+////                        new BookingResponse(
+////                                booking.getBookingId(),
+////                                booking.getCheckInDate(),
+////                                booking.getCheckOutDate(),
+////                                booking.getBookingConfirmationCode()))
+////                .toList();
+//        byte[] photoBytes = null;
+//        Blob photoBlob = room.getPhoto();
+//        if (photoBlob != null) {
+//            try {
+//                photoBytes = photoBlob.getBytes(1, (int) photoBlob.length());
+//            } catch (SQLException e) {
+//                throw new PhotoRetrievalException("Error retrieving photo");
+//            }
+//        }
+////        return new RoomResponse(room.getId(), room.getRoomType(), room.getRoomPrice(), room.isBooked(), photoBytes, bookingInfo);
+//        return new RoomResponse(room.getId(), room.getRoomType(), room.getRoomPrice(), room.isBooked(), photoBytes);
+//    }
 
     private List<BookedRoom> getAllBookingsByRoomId(Long roomId) {
         return bookingService.getAllBookingsByRoomId(roomId);

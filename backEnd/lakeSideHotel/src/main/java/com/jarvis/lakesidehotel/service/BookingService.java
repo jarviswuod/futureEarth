@@ -31,7 +31,7 @@ public class BookingService implements IBookingService {
     public void cancelBooking(Long bookingId) {
         bookingRepository.deleteById(bookingId);
     }
- 
+
     @Override
     public String saveBooking(Long roomId, BookedRoom bookingRequest) {
         if (bookingRequest.getCheckOutDate().isBefore(bookingRequest.getCheckInDate())) {
