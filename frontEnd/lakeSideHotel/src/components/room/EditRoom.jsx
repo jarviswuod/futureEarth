@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { updateRoom, getRoomById } from "../utils/ApiFuctions";
 import RoomTypeSelector from "../common/RoomTypeSelector";
 import { Link, useParams } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const EditRoom = () => {
   const { id: roomId } = useParams();
@@ -131,12 +132,18 @@ const EditRoom = () => {
                 )}
               </div>
 
-              <Link to="/existing-rooms">Back</Link>
+              <div className="space-between">
+                <Button variant="primary">
+                  <Link to="/existing-rooms" className="btn-back">
+                    Back
+                  </Link>
+                </Button>
 
-              <div className="d-grid d-md-flex mt-2">
-                <button className="btn btn-outlise-primary ml-5">
-                  Edit room
-                </button>
+                <div className="d-grid d-md-flex mt-2">
+                  <button className="btn btn-outlise-primary ml-5 btn-hotel">
+                    Edit room
+                  </button>
+                </div>
               </div>
             </form>
           </div>

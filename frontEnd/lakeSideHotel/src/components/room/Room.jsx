@@ -55,7 +55,7 @@ const Room = () => {
       </Row>
       <Row>{renderRooms()}</Row>
       <Row>
-        <Col md={6} className="mb-3 mb-md-0">
+        <Col className="mb-3 mb-md-0">
           <RoomPaginator
             currentPage={currentPage}
             totalPages={totalPages}
