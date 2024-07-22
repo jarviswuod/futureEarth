@@ -25,21 +25,18 @@ const HotelService = () => {
       <Container>
         <Header title={"Our Services"} />
         <Row>
-          <h4>
+          <h4 className="mt-8">
             Services at <span className="hotel-color">LakeSide - </span>Hotel
-            <span className="gap-3">
-              <FaClock /> - 24-Hour Front Desk
-            </span>
           </h4>
         </Row>
-        <hr />
+        {/* <hr /> */}
         <Row xs={1} md={2} lg={3} className="g-4 mt-2">
           <Col>
             <Card>
               <CardBody>
-                <CardTitle className="hotel-color">
+                <CardTitle className="hotel-color align-center">
                   <FaWifi />
-                  WiFi
+                  <span>WiFi</span>
                 </CardTitle>
                 <CardText>
                   Stay connected with high-speed internt access.
@@ -51,9 +48,9 @@ const HotelService = () => {
           <Col>
             <Card>
               <CardBody>
-                <CardTitle className="hotel-color">
+                <CardTitle className="hotel-color align-center">
                   <FaUtensils />
-                  Breakfast
+                  <span>Breakfast</span>
                 </CardTitle>
                 <CardText>Start your day with a delicious buffet.</CardText>
               </CardBody>
@@ -63,9 +60,9 @@ const HotelService = () => {
           <Col>
             <Card>
               <CardBody>
-                <CardTitle className="hotel-color">
+                <CardTitle className="hotel-color align-center">
                   <FaTshirt />
-                  Laundry
+                  <span>Laundry</span>
                 </CardTitle>
                 <CardText>
                   Keep your clothes clean and fresh with our laundry services/
@@ -77,9 +74,9 @@ const HotelService = () => {
           <Col>
             <Card>
               <CardBody>
-                <CardTitle className="hotel-color">
+                <CardTitle className="hotel-color align-center">
                   <FaCocktail />
-                  Mini-bar
+                  <span>Mini-bar</span>
                 </CardTitle>
                 <CardText>
                   Enjoy a refreshing drink or snack from out in-room mini-bar.
@@ -91,9 +88,9 @@ const HotelService = () => {
           <Col>
             <Card>
               <CardBody>
-                <CardTitle className="hotel-color">
+                <CardTitle className="hotel-color align-center">
                   <FaParking />
-                  Parking
+                  <span>Parking</span>
                 </CardTitle>
                 <CardText>
                   Park your car conveniently in our on-site parking lot.
@@ -105,9 +102,9 @@ const HotelService = () => {
           <Col>
             <Card>
               <CardBody>
-                <CardTitle className="hotel-color">
+                <CardTitle className="hotel-color align-center">
                   <FaSnowflake />
-                  Air condtioning
+                  <span>Air condtioning</span>
                 </CardTitle>
                 <CardText>
                   Stay cool and comfortable with our air conditioning system.

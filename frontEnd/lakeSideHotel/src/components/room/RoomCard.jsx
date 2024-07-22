@@ -27,7 +27,7 @@ const RoomCard = ({ room }) => {
             </Card.Text>
           </div>
           <div className="fles-shrink-0 mt-3">
-            <Link to={`book-room/${room.id}`} className="btn btn-hotel btn-sm">
+            <Link to={`/book-room/${room.id}`} className="btn btn-hotel btn-sm">
               View/Book Now
             </Link>
           </div>

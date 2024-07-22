@@ -65,13 +65,15 @@ const AddRoom = () => {
           <div className="col-md-8 col-lg-6">
             <h2 className="mt-5 mb-2">Add a new room</h2>
             {successMessage && (
-              <div className="alert alert-success fade show">
+              <div className="alert alert-success fade sho action-messagew">
                 {successMessage}
               </div>
             )}
 
             {errorMessage && (
-              <div className="alert alert-danger fade show">{errorMessage}</div>
+              <div className="alert alert-danger fade show action-message">
+                {errorMessage}
+              </div>
             )}
 
             <form onSubmit={handleSubmit}>

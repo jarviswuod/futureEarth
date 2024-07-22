@@ -50,12 +50,14 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
       </p>
 
       <div>
-        <h5>Number of Guests</h5>
-        <strong>
-          Adult{booking.numberOfAdults > 1 ? "s" : ""} :{" "}
-          {booking.numberOfAdults}
-        </strong>
-        <strong>Children : {booking.numberOfChildren}</strong>
+        <p>
+          Number of Guests :{" "}
+          <strong>
+            Adult{booking.numberOfAdults > 1 ? "s" : ""} :{" "}
+            {booking.numberOfAdults}{" "}
+          </strong>
+          <strong>Children : {booking.numberOfChildren}</strong>
+        </p>
       </div>
 
       {payment() > 0 ? (
@@ -66,17 +68,19 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
           {isFormValid && !isBookingConfirmed ? (
             <Button variant="sucess" onClick={handleConfirmBooking}>
               {isProcessingPayment ? (
-                <>
+                <div className="btn btn-hotel">
                   <span
                     className="spinner-border spinner-border-sm mr-2"
                     role="status"
                     aria-hidden="true"
                   ></span>
                   <p>Booking Confrimed, redirecting to payment... </p>
-                </>
+                </div>
               ) : (
                 <>
-                  <p>Confimed Booking, Proceed to payment</p>
+                  <p className="btn btn-hotel">
+                    Confimed Booking, Proceed to payment
+                  </p>
                 </>
               )}
             </Button>
@@ -84,7 +88,6 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
             <div className="d-flex justify-content-center aligh-items-center">
               <div className="spinner-border text-primary" role="status">
                 <span className="sr-only">Loading</span>
-                <span>Loading</span>
               </div>
             </div>
           ) : null}

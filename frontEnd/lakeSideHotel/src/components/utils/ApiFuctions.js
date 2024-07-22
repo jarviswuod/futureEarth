@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
 
 export const api = axios.create({
   baseURL: "http://localhost:8080",
@@ -11,7 +10,11 @@ export async function addRoom(photo, roomType, roomPrice) {
   formData.append("roomType", roomType);
   formData.append("roomPrice", roomPrice);
 
-  const response = await api.post("/rooms/add/new-room", formData);
+  const response = await api.post("/rooms/add/new-room", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   return response.status === 201;
 }
 
@@ -62,7 +65,6 @@ export async function getRoomById(roomId) {
 }
 
 export async function bookRoom(roomId, booking) {
-  console.log(booking);
   try {
     const response = await api.post(
       `/bookings/room/${roomId}/booking`,

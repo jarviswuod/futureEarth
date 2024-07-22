@@ -32,7 +32,7 @@ const EditRoom = () => {
       try {
         const roomData = await getRoomById(roomId);
         setRoom(roomData);
-        setImagePreview(roomData.photo);
+        setImagePreview(`data:image/jpg;base64,${roomData.photo}`);
       } catch (error) {
         setErrorMessage("Error in fetching your room");
       }
@@ -49,7 +49,7 @@ const EditRoom = () => {
         setSuccessMessage("Room was updated successfully");
         const updatedRoomData = await getRoomById(roomId);
         setRoom(updatedRoomData);
-        setImagePreview(updatedRoomData.photo);
+        setImagePreview(`data:image/jpg;base64,${updatedRoomData.photo}`);
         setErrorMessage("");
       } else {
         setErrorMessage("Error updating room");
@@ -69,15 +69,17 @@ const EditRoom = () => {
       <section className="container mt-5 mb-5">
         <div className="row justify-content-center">
           <div className="col-md-8 col-lg-6">
-            <h2 className="mt-5 mb-2">Edit room</h2>
+            <h2 className="mt-3 mb-2">Edit room</h2>
             {successMessage && (
-              <div className="alert alert-success fade show">
+              <div className="alert alert-success fade show action-message">
                 {successMessage}
               </div>
             )}
 
             {errorMessage && (
-              <div className="alert alert-danger fade show">{errorMessage}</div>
+              <div className="alert alert-danger fade show" action-message>
+                {errorMessage}
+              </div>
             )}
 
             <form onSubmit={handleSubmit}>
@@ -116,13 +118,13 @@ const EditRoom = () => {
                   required
                   id="photo"
                   name="photo"
-                  // value={room.photo}
                   onChange={handleImageChange}
                 />
+
                 {imagePreview && (
                   <img
                     src={imagePreview}
-                    alt="Preview Room Photo"
+                    alt={`A ${room.roomType} photo`}
                     style={{ maxWidth: "400px", maxHeight: "400px" }}
                     className="mb-3"
                   />

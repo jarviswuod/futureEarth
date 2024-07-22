@@ -1,4 +1,3 @@
-import { getAdapter } from "axios";
 import React, { useEffect, useState } from "react";
 import { getAllRooms } from "../utils/ApiFuctions";
 import { Link } from "react-router-dom";
@@ -44,11 +43,13 @@ const RoomCarousel = () => {
 
   return (
     <section className="bg-light mb-5 mt-5 shadow">
-      <Link to={"/browse-all-rooms"} className="hotel-color text-center">
-        Browse all rooms
-      </Link>
+      <h4 className="my-4 pt-3 px-3">
+        <Link to={"/browse-all-rooms"} className="hotel-color text-center">
+          Browse all rooms
+        </Link>
+      </h4>
       <Container>
-        <Carousel indicators={false}>
+        <Carousel indicators={false} controls={false}>
           {[...Array(Math.ceil(rooms.length / 4))].map((_, index) => (
             <CarouselItem key={index}>
               <Row>

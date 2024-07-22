@@ -5,7 +5,7 @@ const RoomPaginator = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <nav>
-      <ul className="pagination, justify-content-center">
+      <ul className="pagination justify-content-center mt-4">
         {pageNumbers.map((pageNumber) => (
           <li
             key={pageNumber}
