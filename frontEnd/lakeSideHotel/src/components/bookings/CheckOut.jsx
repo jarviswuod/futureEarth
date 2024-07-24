@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import BookingForm from "./BookingForm";
-import { useParams, useNavigate, useState } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getRoomById } from "../utils/ApiFuctions";
 import {
   FaCar,
@@ -11,6 +11,7 @@ import {
   FaWifi,
   FaWineGlassAlt,
 } from "react-icons/fa";
+import RoomCarousel from "../common/RoomCarousel";
 
 const CheckOut = () => {
   const { id: roomId } = useParams();
@@ -38,77 +39,79 @@ const CheckOut = () => {
     }, 2000);
   }, [roomId]);
   return (
-    <div>
-      <section className="container">
-        <div className="row flex-column flex-md-row align-items-center">
-          <div className="col-md-4 mt-5 mb-5">
-            {isLoading ? (
-              <p>Loading room information</p>
-            ) : error ? (
-              <p>{error}</p>
-            ) : (
-              <div className="room-info">
-                <img
-                  src={`data:image/png;base64,,${roomInfo.photo}`}
-                  alt={`A ${roomInfo.roomPrice} room`}
-                  style={{ width: "100%", height: "200px" }}
-                />
-                <table>
-                  <tbody>
-                    <tr>
-                      <th>Room Type : </th>
-                      <th>{roomInfo.roomType}</th>
-                    </tr>
+    <section className="container">
+      <div className="row flex-column flex-md-row align-items-center">
+        <div className="col-md-4 mt-5 mb-5 card card-body">
+          {isLoading ? (
+            <p>Loading room information</p>
+          ) : error ? (
+            <p>{error}</p>
+          ) : (
+            <div className="room-info">
+              <img
+                src={`data:image/png;base64,${roomInfo.photo}`}
+                alt={`A ${roomInfo.roomPrice} room`}
+                style={{ width: "100%", height: "200px" }}
+              />
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Room Type : </th>
+                    <td>{roomInfo.roomType}</td>
+                  </tr>
 
-                    <tr>
-                      <th>Room Price : </th>
-                      <th>{roomInfo.roomPrice}</th>
-                    </tr>
+                  <tr>
+                    <th>Room Price : </th>
+                    <td>{roomInfo.roomPrice}</td>
+                  </tr>
 
-                    <tr>
-                      <td>
-                        <ul className="list-unstyled">
-                          <li>
-                            <FaWifi /> Wifi
-                          </li>
+                  <tr>
+                    <th>Room Services : </th>
+                    <td>
+                      <ul className="list-unstyled">
+                        <li>
+                          <FaWifi /> Wifi
+                        </li>
 
-                          <li>
-                            <FaTv /> Netflix Premium
-                          </li>
+                        <li>
+                          <FaTv /> Netflix Premium
+                        </li>
 
-                          <li>
-                            <FaUtensils /> Breakfast
-                          </li>
+                        <li>
+                          <FaUtensils /> Breakfast
+                        </li>
 
-                          <li>
-                            <FaWineGlassAlt /> Mini bar refreshment
-                          </li>
+                        <li>
+                          <FaWineGlassAlt /> Mini bar refreshment
+                        </li>
 
-                          <li>
-                            <FaCar /> Car Service
-                          </li>
+                        <li>
+                          <FaCar /> Car Service
+                        </li>
 
-                          <li>
-                            <FaParking /> Parking Space
-                          </li>
+                        <li>
+                          <FaParking /> Parking Space
+                        </li>
 
-                          <li>
-                            <FaTshirt /> Laundry
-                          </li>
-                        </ul>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-          <div className="col-md-6">
-            <BookingForm />
-          </div>
+                        <li>
+                          <FaTshirt /> Laundry
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
-      </section>
-    </div>
+        <div className="col-md-8">
+          <BookingForm />
+        </div>
+      </div>
+      <div className="">
+        <RoomCarousel />
+      </div>
+    </section>
   );
 };
 

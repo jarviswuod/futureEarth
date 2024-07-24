@@ -17,6 +17,7 @@ import NotFoundPage from "./components/common/NotFoundPage";
 import Admin from "./components/admin/Admin";
 import CheckOut from "./components/bookings/CheckOut";
 import BookingSuccess from "./components/bookings/BookingSuccess";
+import Bookings from "./components/bookings/Bookings";
 
 function App() {
   const router = createBrowserRouter(
@@ -29,6 +30,7 @@ function App() {
         <Route path="/book-room/:id" element={<CheckOut />} />
         <Route path="/browse-all-rooms" element={<RoomListing />} />
         <Route path="/booking-success" element={<BookingSuccess />} />
+        <Route path="/existing-bookings" element={<Bookings />} />
 
         <Route path="/admin" element={<Admin />} />
 
