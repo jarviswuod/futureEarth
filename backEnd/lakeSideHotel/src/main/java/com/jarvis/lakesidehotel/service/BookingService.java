@@ -1,6 +1,7 @@
 package com.jarvis.lakesidehotel.service;
 
 import com.jarvis.lakesidehotel.exception.InvalidBookingRequestException;
+import com.jarvis.lakesidehotel.exception.ResourceNotFoundException;
 import com.jarvis.lakesidehotel.model.BookedRoom;
 import com.jarvis.lakesidehotel.model.Room;
 import com.jarvis.lakesidehotel.repository.BookingRepository;
@@ -50,11 +51,17 @@ public class BookingService implements IBookingService {
         return bookingRequest.getBookingConfirmationCode();
     }
 
-
     @Override
     public BookedRoom findByBookingConfirmationCode(String confirmationCode) {
-        return bookingRepository.findByBookingConfirmationCode(confirmationCode);
+        return bookingRepository.findByBookingConfirmationCode(confirmationCode)
+                .orElseThrow(() -> new ResourceNotFoundException("No booking found with confirmation code : " + confirmationCode));
     }
+
+//    @Override
+//    public BookedRoom findByBookingConfirmationCode(String confirmationCode) {
+//        return bookingRepository.findByBookingConfirmationCode(confirmationCode);
+//    }
+
 
     private boolean roomIsAvailable(BookedRoom bookingRequest, List<BookedRoom> existingBookings) {
         return existingBookings.stream()

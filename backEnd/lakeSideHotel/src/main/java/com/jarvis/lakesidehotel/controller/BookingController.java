@@ -1,6 +1,7 @@
 package com.jarvis.lakesidehotel.controller;
 
 import com.jarvis.lakesidehotel.exception.InvalidBookingRequestException;
+import com.jarvis.lakesidehotel.exception.ResourceNotFoundException;
 import com.jarvis.lakesidehotel.model.BookedRoom;
 import com.jarvis.lakesidehotel.model.Room;
 import com.jarvis.lakesidehotel.response.BookingResponse;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,8 +46,9 @@ public class BookingController {
             BookedRoom booking = bookingService.findByBookingConfirmationCode(confirmationCode);
             BookingResponse bookingResponse = getBookingResponse(booking);
             return ResponseEntity.ok(bookingResponse);
-        } catch (ResourceAccessException exception) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+        } catch (ResourceNotFoundException exception) {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("error", exception.getMessage()));
         }
     }
 
@@ -60,7 +63,7 @@ public class BookingController {
         }
     }
 
-    @DeleteMapping("/booking/{bookingId}/delete")
+    @DeleteMapping("/{bookingId}/delete")
     public void cancelBooking(@PathVariable Long bookingId) {
         bookingService.cancelBooking(bookingId);
     }

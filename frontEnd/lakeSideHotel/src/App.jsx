@@ -18,6 +18,8 @@ import Admin from "./components/admin/Admin";
 import CheckOut from "./components/bookings/CheckOut";
 import BookingSuccess from "./components/bookings/BookingSuccess";
 import Bookings from "./components/bookings/Bookings";
+import FindBooking from "./components/bookings/FindBooking";
+import Footer from "./components/common/Footer";
 
 function App() {
   const router = createBrowserRouter(
@@ -31,6 +33,7 @@ function App() {
         <Route path="/browse-all-rooms" element={<RoomListing />} />
         <Route path="/booking-success" element={<BookingSuccess />} />
         <Route path="/existing-bookings" element={<Bookings />} />
+        <Route path="/find-booking" element={<FindBooking />} />
 
         <Route path="/admin" element={<Admin />} />
 

@@ -33,7 +33,7 @@ const NavBar = () => {
               <Nav.Link className="px-4" href="/admin">
                 Admin
               </Nav.Link>
-              <Nav.Link className="px-4" href="/find-bookings">
+              <Nav.Link className="px-4" href="/find-booking">
                 Find my Bookings
               </Nav.Link>
               <NavDropdown title="Account" id="basic-nav-dropdown">
