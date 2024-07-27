@@ -8,8 +8,7 @@ import com.jarvis.lakesidehotel.repository.RoleRepository;
 import com.jarvis.lakesidehotel.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -20,8 +19,7 @@ import java.util.List;
 public class UserService implements IUserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-//    private final PasswordEncoder passwordEncoder;
-
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User registerUser(User user) {
