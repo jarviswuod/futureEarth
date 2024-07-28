@@ -6,6 +6,7 @@ import com.jarvis.lakesidehotel.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,16 +14,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
-@CrossOrigin
 public class UserController {
     private final UserService userService;
 
     @GetMapping("/all")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("/{email}")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> getUserByEmail(@PathVariable("email") String email) {
         try {
             User user = userService.getUser(email);
@@ -35,6 +37,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{email}")
+    @PreAuthorize("  hasRole('ROLE_ADMIN') or hasRole('ROLE_USER') and #email=principal.username")
     public ResponseEntity<String> deleteUser(@PathVariable("email") String email) {
         try {
             userService.deleteUser(email);

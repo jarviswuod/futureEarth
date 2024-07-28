@@ -1,6 +1,5 @@
 package com.jarvis.lakesidehotel.response;
 
-import com.jarvis.lakesidehotel.model.Room;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

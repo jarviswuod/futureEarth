@@ -57,11 +57,6 @@ public class BookingService implements IBookingService {
                 .orElseThrow(() -> new ResourceNotFoundException("No booking found with confirmation code : " + confirmationCode));
     }
 
-//    @Override
-//    public BookedRoom findByBookingConfirmationCode(String confirmationCode) {
-//        return bookingRepository.findByBookingConfirmationCode(confirmationCode);
-//    }
-
 
     private boolean roomIsAvailable(BookedRoom bookingRequest, List<BookedRoom> existingBookings) {
         return existingBookings.stream()

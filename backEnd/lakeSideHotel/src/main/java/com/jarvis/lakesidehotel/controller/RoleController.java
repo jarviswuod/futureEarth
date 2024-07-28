@@ -1,10 +1,8 @@
 package com.jarvis.lakesidehotel.controller;
 
-import com.jarvis.lakesidehotel.exception.InvalidBookingRequestException;
 import com.jarvis.lakesidehotel.exception.RoleAlreadyExistException;
 import com.jarvis.lakesidehotel.exception.RoleNotFoundException;
 import com.jarvis.lakesidehotel.exception.UserAlreadyExistsException;
-import com.jarvis.lakesidehotel.model.BookedRoom;
 import com.jarvis.lakesidehotel.model.Role;
 import com.jarvis.lakesidehotel.model.User;
 import com.jarvis.lakesidehotel.service.RoleService;
@@ -20,7 +18,6 @@ import static org.springframework.http.HttpStatus.FOUND;
 @RestController
 @RequestMapping("/roles")
 @RequiredArgsConstructor
-@CrossOrigin
 public class RoleController {
     private final RoleService roleService;
 

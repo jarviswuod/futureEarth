@@ -23,7 +23,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/bookings")
-@CrossOrigin
 public class BookingController {
     private final IBookingService bookingService;
     private final IRoomService roomService;
@@ -47,7 +46,6 @@ public class BookingController {
             BookingResponse bookingResponse = getBookingResponse(booking);
             return ResponseEntity.ok(bookingResponse);
         } catch (ResourceNotFoundException exception) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("error", exception.getMessage()));
         }
     }

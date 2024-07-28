@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -29,13 +30,17 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/rooms")
-@CrossOrigin
 public class RoomController {
     private final IRoomService roomService;
     private final BookingService bookingService;
 
     @PostMapping("/add/new-room")
-    public ResponseEntity<RoomResponse> addNewRoom(@RequestParam("photo") MultipartFile photo, @RequestParam("roomType") String roomType, @RequestParam("roomPrice") BigDecimal roomPrice) throws SQLException, IOException {
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<RoomResponse> addNewRoom(
+            @RequestParam("photo") MultipartFile photo,
+            @RequestParam("roomType") String roomType,
+            @RequestParam("roomPrice") BigDecimal roomPrice
+    ) throws SQLException, IOException {
         Room savedRoom = roomService.addNewRoom(photo, roomType, roomPrice);
         RoomResponse response = new RoomResponse(savedRoom.getId(), savedRoom.getRoomType(), savedRoom.getRoomPrice());
         return ResponseEntity.ok(response);
@@ -67,6 +72,7 @@ public class RoomController {
 
     //    DELETE ROOM FUNCTIONALITY
     @DeleteMapping("/delete/room/{roomId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<RoomResponse> deleteRoom(@PathVariable Long roomId) {
         roomService.deleteRoom(roomId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -75,7 +81,13 @@ public class RoomController {
 
     //    UPDATING ROOM FUNCTIONALITY
     @PutMapping("/update/{roomId}")
-    public ResponseEntity<RoomResponse> updateRoom(@PathVariable Long roomId, @RequestParam(required = false) String roomType, @RequestParam(required = false) MultipartFile photo, @RequestParam(required = false) BigDecimal roomPrice) throws IOException, SQLException {
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<RoomResponse> updateRoom(
+            @PathVariable Long roomId,
+            @RequestParam(required = false) String roomType,
+            @RequestParam(required = false) MultipartFile photo,
+            @RequestParam(required = false) BigDecimal roomPrice
+    ) throws IOException, SQLException {
         byte[] photoBytes = photo != null && !photo.isEmpty() ? photo.getBytes() : roomService.getRoomPhotoByRoomId(roomId);
         Blob photoBlob = photoBytes != null && photoBytes.length > 0 ? new SerialBlob(photoBytes) : null;
 
