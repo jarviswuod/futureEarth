@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Form } from "react-bootstrap";
+import { AuthContext } from "./AuthProvider";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,20 +14,20 @@ const Login = () => {
     password: "",
   });
 
+  const { handleLogin } = useContext(AuthContext);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
   };
 
-  const handleLogin = async (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const success = await loginUser(login);
     if (success) {
       const token = success.token;
-      const decodedToken = jwtDecode(token);
-      localStorage.setItem("token", token);
-      localStorage.setItem("userId", decodedToken.sub);
-      localStorage.setItem("userRole", decodedToken.roles.join(","));
+      handleLogin(token);
+
       setSuccessMessage("Login successful");
       setErrorMessage("");
 
@@ -49,7 +50,7 @@ const Login = () => {
       )}
 
       <h2>Login</h2>
-      <Form noValidate validated={isValidated} onSubmit={handleLogin}>
+      <Form noValidate validated={isValidated} onSubmit={handleLoginSubmit}>
         <Form.Group>
           <Form.Label htmlFor="email">Email : </Form.Label>
           <Form.Control

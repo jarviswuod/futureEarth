@@ -19,12 +19,17 @@ import CheckOut from "./components/bookings/CheckOut";
 import BookingSuccess from "./components/bookings/BookingSuccess";
 import Bookings from "./components/bookings/Bookings";
 import FindBooking from "./components/bookings/FindBooking";
+import Login from "./components/auth/Login";
+import Logout from "./components/auth/Logout";
+import Registration from "./components/auth/Registration";
+import Profile from "./components/auth/Profile";
 import Footer from "./components/common/Footer";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
+        <Route path="*" element={<NotFoundPage />} />
         <Route index element={<Home />} />
         <Route path="/existing-rooms" element={<ExistingRooms />} />
         <Route path="/edit-room/:id" element={<EditRoom />} />
@@ -34,10 +39,12 @@ function App() {
         <Route path="/booking-success" element={<BookingSuccess />} />
         <Route path="/existing-bookings" element={<Bookings />} />
         <Route path="/find-booking" element={<FindBooking />} />
-
         <Route path="/admin" element={<Admin />} />
 
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/register" element={<Registration />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
     )
   );
