@@ -24,6 +24,7 @@ const Registration = () => {
     e.preventDefault();
     try {
       const result = await userRegistration(registration);
+
       setSuccessMessage(result);
       setErrorMessage("");
       setRegistration({
@@ -32,10 +33,14 @@ const Registration = () => {
         email: "",
         password: "",
       });
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } catch (error) {
-      setErrorMessage(`Registration error : ${error.message}`);
+      setErrorMessage(`${error.message}`);
       setSuccessMessage("");
     }
+
     setTimeout(() => {
       setErrorMessage("");
       setSuccessMessage("");
@@ -49,7 +54,7 @@ const Registration = () => {
       )}
 
       <h2>Registration</h2>
-      <Form noValidate validated={isValidated} onSubmit={handleRegistration}>
+      <Form noValidate onSubmit={handleRegistration}>
         <Form.Group>
           <Form.Label htmlFor="firstName">First Name : </Form.Label>
           <Form.Control

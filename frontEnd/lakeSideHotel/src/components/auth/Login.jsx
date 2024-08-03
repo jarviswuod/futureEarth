@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { Form } from "react-bootstrap";
 import { AuthContext } from "./AuthProvider";
+import { userLogin } from "../utils/ApiFuctions";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,24 +24,28 @@ const Login = () => {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    const success = await loginUser(login);
-    if (success) {
-      const token = success.token;
-      handleLogin(token);
+    try {
+      const success = await userLogin(login);
 
-      setSuccessMessage("Login successful");
-      setErrorMessage("");
+      if (success) {
+        const token = success.token;
+        handleLogin(token);
 
-      navigate("/");
-      window.location.reload();
-    } else {
+        setSuccessMessage("Login successful");
+        setErrorMessage("");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      }
+    } catch (error) {
       setSuccessMessage("");
       setErrorMessage("Invalid username or password. Please try again.");
     }
+
     setTimeout(() => {
       setErrorMessage("");
       setSuccessMessage("");
-    }, 2000);
+    }, 3000);
   };
   return (
     <section className="container col-6 mt-5 mb-5">
@@ -50,7 +55,7 @@ const Login = () => {
       )}
 
       <h2>Login</h2>
-      <Form noValidate validated={isValidated} onSubmit={handleLoginSubmit}>
+      <Form noValidate onSubmit={handleLoginSubmit}>
         <Form.Group>
           <Form.Label htmlFor="email">Email : </Form.Label>
           <Form.Control
@@ -58,7 +63,7 @@ const Login = () => {
             type="email"
             id="email"
             name="email"
-            value={registration.email}
+            value={login.email}
             placeholder="Enter a valid email address"
             onChange={handleInputChange}
           />
@@ -75,7 +80,7 @@ const Login = () => {
             type="password"
             id="password"
             name="password"
-            value={registration.password}
+            value={login.password}
             placeholder="Enter password"
             onChange={handleInputChange}
           />

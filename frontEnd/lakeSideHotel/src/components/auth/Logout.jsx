@@ -25,6 +25,9 @@ const Logout = () => {
       <li>
         <hr className="dropdown-divider" />
       </li>
+      <button className="dropdown-item" onClick={handleLogout}>
+        Logout
+      </button>
     </>
   ) : (
     <></>

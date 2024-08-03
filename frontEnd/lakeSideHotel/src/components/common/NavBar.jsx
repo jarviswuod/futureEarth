@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { AuthContext } from "../auth/AuthProvider";
 
 const NavBar = () => {
   const [showAccount, setShowAccount] = useState(false);
+  const { user } = useContext(AuthContext);
 
   const handleAccountClick = () => {
     setShowAccount(!showAccount);
   };
+
+  const isLoggedIn = user !== null;
+  console.log(AuthContext.user);
+  const userRole = localStorage.getItem("userRole");
+  const isAdmin = userRole?.split(", ").includes("ROLE_ADMIN");
+  console.log(userRole);
 
   return (
     <div>
@@ -30,16 +38,21 @@ const NavBar = () => {
               <Nav.Link className="px-4" href="/browse-all-rooms">
                 Browse all rooms
               </Nav.Link>
-              <Nav.Link className="px-4" href="/admin">
-                Admin
-              </Nav.Link>
+              {isAdmin && (
+                <Nav.Link className="px-4" href="/admin">
+                  Admin
+                </Nav.Link>
+              )}
               <Nav.Link className="px-4" href="/find-booking">
                 Find my Bookings
               </Nav.Link>
               <NavDropdown title="Account" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/login">Login</NavDropdown.Item>
                 <NavDropdown.Item href="/profie">Profie</NavDropdown.Item>
-                <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+                {isLoggedIn ? (
+                  <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+                ) : (
+                  <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+                )}
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

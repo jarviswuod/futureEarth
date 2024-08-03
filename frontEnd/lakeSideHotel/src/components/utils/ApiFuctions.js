@@ -146,15 +146,9 @@ export async function userLogin(login) {
     const response = await api.post(`/auth/login`, login);
     if (response.status >= 200 && response.status < 300) {
       return response.data;
-    } else {
-      return null;
     }
   } catch (error) {
-    if (error.response && error.response.data) {
-      throw new Error(`Error : ${error.response.data}`);
-    } else {
-      throw new Error(`User login error: ${error.message}`);
-    }
+    throw new Error(`User login error: ${error.message}`);
   }
 }
 
