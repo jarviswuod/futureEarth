@@ -19,12 +19,13 @@ const AuthProvider = ({ children }) => {
     setUser(decodeToken);
   };
 
-  const handleLogout = (token) => {
+  const handleLogout = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("userRole");
     localStorage.removeItem("token");
-    setUser(nullS);
+    setUser(null);
   };
+
   return (
     <div>
       <AuthContext.Provider value={{ user, handleLogin, handleLogout }}>

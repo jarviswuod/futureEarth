@@ -17,6 +17,7 @@ const NavBar = () => {
 
   const isLoggedIn = user !== null;
   console.log(AuthContext.user);
+  const userId = localStorage.getItem("userId");
   const userRole = localStorage.getItem("userRole");
   const isAdmin = userRole?.split(", ").includes("ROLE_ADMIN");
   console.log(userRole);
