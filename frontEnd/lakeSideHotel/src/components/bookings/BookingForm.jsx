@@ -10,6 +10,7 @@ import BookingSummary from "./BookingSummary";
 const BookingForm = () => {
   const { id: roomId } = useParams();
   const navigate = useNavigate();
+  const currentUser = localStorage.getItem("userId");
 
   const [isValidated, setIsValidated] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -22,7 +23,7 @@ const BookingForm = () => {
   });
   const [booking, setBooking] = useState({
     guestFullName: "",
-    guestEmail: "",
+    guestEmail: currentUser,
     checkInDate: "",
     checkOutDate: "",
     numberOfAdults: "",

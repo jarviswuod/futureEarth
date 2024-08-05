@@ -31,17 +31,16 @@ public class JwtUtils {
                 .stream()
                 .map(GrantedAuthority::getAuthority).toList();
 
-
         return Jwts.builder()
                 .setSubject(userPrincipal.getUsername())
                 .claim("roles", roles)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationTime))
-                .signWith(key(), SignatureAlgorithm.ES256).compact();
+                .signWith(key(), SignatureAlgorithm.HS256).compact();
     }
 
     private Key key() {
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+        return Keys.secretKeyFor(SignatureAlgorithm.HS256);
     }
 
     public String getUserNameFromToken(String token) {

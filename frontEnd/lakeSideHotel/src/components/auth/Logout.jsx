@@ -1,36 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
 const Logout = () => {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const isLoggedIn = localStorage.getItem("userId");
 
   const handleLogout = () => {
-    auth.handleLogout();
-    window.location.reload();
-    navigate("/", {
-      state: { message: "You have been looged out successfully!" },
-    });
-  };
-  const isLoggedIn = auth.user !== null;
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userRole");
+    localStorage.removeItem("token");
 
-  return isLoggedIn ? (
-    <>
-      <li>
-        <Link className="dropdown-item" to={profile}>
-          Profile
-        </Link>
-      </li>
-      <li>
-        <hr className="dropdown-divider" />
-      </li>
-      <button className="dropdown-item" onClick={handleLogout}>
-        Logout
-      </button>
-    </>
-  ) : (
-    <></>
+    setSuccessMessage("You have been looged out successfully!");
+    setErrorMessage("");
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  };
+
+  return (
+    isLoggedIn && (
+      <>
+        <p>Are you sure you want to log out</p>
+        <div>
+          <Link className="dropdown-item" to={"/"}>
+            No
+          </Link>
+        </div>
+        <button className="dropdown-item" onClick={handleLogout}>
+          Yes
+        </button>
+      </>
+    )
   );
 };
 

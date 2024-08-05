@@ -15,7 +15,6 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem("userId", decodeToken.sub);
     localStorage.setItem("userRole", decodeToken.roles.join(", "));
     localStorage.setItem("token", token);
-    console.log(decodeToken);
     setUser(decodeToken);
   };
 

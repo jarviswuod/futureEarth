@@ -24,6 +24,7 @@ import Logout from "./components/auth/Logout";
 import Registration from "./components/auth/Registration";
 import Profile from "./components/auth/Profile";
 import Footer from "./components/common/Footer";
+import RequiredAuth from "./components/auth/RequiredAuth";
 
 function App() {
   const router = createBrowserRouter(
@@ -34,7 +35,6 @@ function App() {
         <Route path="/existing-rooms" element={<ExistingRooms />} />
         <Route path="/edit-room/:id" element={<EditRoom />} />
         <Route path="/add-room" element={<AddRoom />} />
-        <Route path="/book-room/:id" element={<CheckOut />} />
         <Route path="/browse-all-rooms" element={<RoomListing />} />
         <Route path="/booking-success" element={<BookingSuccess />} />
         <Route path="/existing-bookings" element={<Bookings />} />
@@ -45,6 +45,15 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/profile" element={<Profile />} />
+
+        <Route
+          path="/book-room/:id"
+          element={
+            <RequiredAuth>
+              <CheckOut />
+            </RequiredAuth>
+          }
+        />
       </Route>
     )
   );

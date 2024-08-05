@@ -15,12 +15,9 @@ const NavBar = () => {
     setShowAccount(!showAccount);
   };
 
-  const isLoggedIn = user !== null;
-  console.log(AuthContext.user);
-  const userId = localStorage.getItem("userId");
+  const isLoggedIn = localStorage.getItem("userId");
   const userRole = localStorage.getItem("userRole");
   const isAdmin = userRole?.split(", ").includes("ROLE_ADMIN");
-  console.log(userRole);
 
   return (
     <div>
@@ -48,9 +45,11 @@ const NavBar = () => {
                 Find my Bookings
               </Nav.Link>
               <NavDropdown title="Account" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/profie">Profie</NavDropdown.Item>
                 {isLoggedIn ? (
-                  <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+                  <>
+                    <NavDropdown.Item href="/profie">Profie</NavDropdown.Item>
+                    <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+                  </>
                 ) : (
                   <NavDropdown.Item href="/login">Login</NavDropdown.Item>
                 )}
