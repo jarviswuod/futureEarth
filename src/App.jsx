@@ -5,6 +5,8 @@ import "./App.css";
 
 import HomePage from "./pages/HomePage";
 import SustainableLivingPage from "./pages/SustainableLivingPage";
+import OurStoryPage from "./pages/OurStoryPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,7 +14,9 @@ function App() {
   return (
     <>
       {/* <HomePage /> */}
-      <SustainableLivingPage />
+      {/* <SustainableLivingPage /> */}
+      {/* <OurStoryPage /> */}
+      <ContactUsPage />
     </>
   );
 }
