@@ -4,17 +4,16 @@ const HeroSection = ({ titleName, img_url }) => {
   return (
     <section
       style={{
-        backgroundImage: `url(${img_url})`,
+        backgroundImage: `linear-gradient(to right, rgba(22, 86, 32, 0.9), rgba(22, 86, 32, 0)), url(${img_url})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="h-[30rem] w-full text-white grid items-center justify-center"
+      className="h-[30rem] w-full text-white flex items-end justify-start"
     >
-      <div className="grid grid-cols-2">
-        <div>
-          <h1 className="text-3xl text-bold">{titleName}</h1>
-        </div>
-        <div></div>
+      <div className="max-w-[1320px] mx-auto w-full py-12">
+        <h1 className="max-w-xl text-6xl font-extrabold leading-tight uppercase mb-8">
+          {titleName}
+        </h1>
       </div>
     </section>
   );
