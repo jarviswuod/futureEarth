@@ -13,9 +13,9 @@ function App() {
 
   return (
     <>
-      {/* <HomePage /> */}
+      <HomePage />
       {/* <SustainableLivingPage /> */}
-      <OurStoryPage />
+      {/* <OurStoryPage /> */}
       {/* <ContactUsPage /> */}
     </>
   );

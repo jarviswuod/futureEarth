@@ -2,25 +2,38 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header class="bg-[#16562078]">
-      <div class="flex items-center justify-between p-4">
-        <h1 class="uppercase flex items-center text-2xl font-bold ">
-          <img src="/images/future_earth_logo.png" alt="future earth logo" />
-          <span>Future Earth</span>
-        </h1>
+    <header className="fixed top-0 left-0 w-full bg-[#16562078] text-white">
+      <div className="max-w-[1320px] mx-auto flex items-center justify-between uppercase p-4">
+        <a
+          className="flex items-center justify-center text-2xl font-bold gap-2"
+          href="/"
+        >
+          <figure className="max-w-12">
+            <img
+              className=""
+              src="/images/future_earth_logo.png"
+              alt="future earth logo"
+            />
+          </figure>
+          <figcaption className="">Future Earth</figcaption>
+        </a>
 
-        <nav class="flex space-x-4">
-          <ul class="flex ">
+        <nav className="flex items-center gap-12 text-xs">
+          <ul className="flex gap-4">
             <li>
-              <a href="#">Get an irise home</a>
+              <a className="bg-[#51A501] p-2" href="#">
+                Get an irise home
+              </a>
             </li>
             <li>
-              <a href="#">Support</a>
+              <a className="bg-[#FFE35A] text-[#165620] p-2" href="#">
+                Support
+              </a>
             </li>
           </ul>
-          <p>
+          <figure className="w-24">
             <img src="/icons/menu_icon.svg" alt="menu icon" />
-          </p>
+          </figure>
         </nav>
       </div>
     </header>
