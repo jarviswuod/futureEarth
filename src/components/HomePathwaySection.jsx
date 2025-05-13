@@ -3,11 +3,12 @@ import React from "react";
 const HomePathwaySection = () => {
   return (
     <section>
-      <div className="grid grid-cols-2">
-        <div>
-          <h2>PATHWAY</h2>
-
-          <p>
+      <div class="max-w-[1320px] mx-auto grid grid-cols-[7fr_5fr] items-center py-12">
+        <div className="bg-[#FBEADC] pl-16 pr-56 py-16">
+          <h2 className="text-6xl text-[#165620] font-extrabold leading-tight uppercase mb-8">
+            PATHWAY
+          </h2>
+          <p className="text-lg font-light mb-8 max-w-xl">
             Future Earth’s blueprint is based on a model that was designed by
             one of our founders, Maya Minkova, 25 years ago while still a
             student, for a safe and sustainable homes project in South African
@@ -15,7 +16,7 @@ const HomePathwaySection = () => {
             technology, housing, women and youth) model as the framework that
             outlines our projects.
           </p>
-          <p>
+          <p className="text-lg font-light mb-8 max-w-xl">
             We believe that women and the youth, who make up more than half of
             the society, are critical in unlocking self-development. The project
             will target women as homeowners, giving them assets and credit and
@@ -23,6 +24,26 @@ const HomePathwaySection = () => {
             owned by women and young people to provide services within the
             community.
           </p>
+        </div>
+        <div className="relaive">
+          <img
+            className="scale-125 -translate-x-12"
+            src="/images/trees_forming_a_canopy.png"
+            alt="trees forming a canopy"
+          />
+        </div>
+      </div>
+    </section>
+  );
+
+  return (
+    <section>
+      <div className="grid grid-cols-2">
+        <div>
+          <h2>PATHWAY</h2>
+
+          <p></p>
+          <p></p>
         </div>
         <div>
           <img
