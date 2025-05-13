@@ -35,25 +35,6 @@ const HomePathwaySection = () => {
       </div>
     </section>
   );
-
-  return (
-    <section>
-      <div className="grid grid-cols-2">
-        <div>
-          <h2>PATHWAY</h2>
-
-          <p></p>
-          <p></p>
-        </div>
-        <div>
-          <img
-            src="/images/trees_forming_a_canopy.png"
-            alt="trees forming a canopy"
-          />
-        </div>
-      </div>
-    </section>
-  );
 };
 
 export default HomePathwaySection;
