@@ -3,22 +3,27 @@ import React from "react";
 const WhatWeDoSection = () => {
   return (
     <section>
-      <div className="grid grid-cols-2">
-        <div>
-          <div>
-            <img src="/images/two_girls_playing.jpg" alt="two girls playing" />
-          </div>
+      <div className="max-w-[1320px] mx-auto grid grid-cols-[1fr_2fr] py-12">
+        <div className="bg-[#FBEADC] flex items-center">
+          <div
+            style={{
+              backgroundImage: "url('/images/two_girls_playing.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            className="overflow-hidden h-96 scale-125 translate-x-14 w-full"
+          ></div>
         </div>
-        <div>
-          <h2>What we do </h2>
-
-          <p>
+        <div className="bg-[#165620] text-[#FBEADC] pl-56 pr-32 py-16">
+          <h2 className="text-6xl font-extrabold leading-tight uppercase mb-8">
+            What we do
+          </h2>
+          <p className="text-lg font-light mb-8 max-w-xl">
             Future Earth carries the dream of a world where everyone has access
             to safe housing, sustainable livelihoods, education and healthcare,
             as well as opportunities to create a legacy for future generations.
           </p>
-
-          <p>
+          <p className="text-lg font-light mb-8 max-w-xl">
             Using the PATHWAY model we have created a self-sustaining ecosystem
             that will fulfill the long-term needs of people in need, not just at
             a basic level but with the potential to create wealth. iRise Homes
@@ -28,15 +33,13 @@ const WhatWeDoSection = () => {
             amenities, including renewable solar energy and digital
             connectivity.
           </p>
-
-          <p>
+          <p className="text-lg font-light mb-8 max-w-xl">
             More than just a place to call home, we have ensured that our houses
             are also the springboard for opportunity and a better life. Each
             house comes with a fruit garden that provides an income for the
-            household and the financial means to pay the mortgage.{" "}
+            household and the financial means to pay the mortgage.
           </p>
-
-          <p>
+          <p className="text-lg font-light mb-8 max-w-xl">
             To allow access to more resources, we will construct in every
             community a central borehole facility to provide access to clean
             water. Through our building technology, we will also put up schools
