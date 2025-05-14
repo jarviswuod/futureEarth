@@ -2,13 +2,13 @@ import React from "react";
 
 const NewsUpdateSection = () => {
   return (
-    <section className="my-16">
+    <section className="my-24 px-8">
       <div className="max-w-[1320px] mx-auto bg-[#165620] text-[#FBEADC] py-12 px-4 grid grid-cols-[auto_1fr] items-center">
         <div className="max-w-md px-20 py-12">
           <h2 className="text-6xl font-extrabold leading-tight uppercase mb-8">
             News Updates
           </h2>
-          <p className="text-lg font-light mb-8 max-w-xl">
+          <p className="text-lg font-extralight mb-8 max-w-xl">
             Find all the information and updates about our past, present and
             future projects here.
           </p>
@@ -36,7 +36,7 @@ const NewsUpdateSection = () => {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
-                className="h-48 w-full flex items-end justify-start mb-4"
+                className="h-40 w-full flex items-end justify-start mb-4"
               ></div>
               <div className="max-w-48 mx-auto">
                 <h3 className="text-2xl font-medium mb-8">
@@ -59,7 +59,7 @@ const NewsUpdateSection = () => {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
-                className="h-48 w-full flex items-end justify-start mb-4"
+                className="h-40 w-full flex items-end justify-start mb-4"
               ></div>
               <div className="max-w-48 mx-auto">
                 <h3 className="text-2xl font-medium mb-8">
@@ -82,7 +82,7 @@ const NewsUpdateSection = () => {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
-                className="h-48 w-full flex items-end justify-start mb-4"
+                className="h-40 w-full flex items-end justify-start mb-4"
               ></div>
               <div className="max-w-48 mx-auto">
                 <h3 className="text-2xl font-medium mb-8">

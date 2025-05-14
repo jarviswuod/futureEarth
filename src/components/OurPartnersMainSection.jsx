@@ -2,10 +2,10 @@ import React from "react";
 
 const OurPartnersMainSection = () => {
   return (
-    <section className="my-16">
+    <section className="my-24 px-8">
       <div className="max-w-[1320px] mx-auto bg-[#FBEADC] py-12 px-4">
         <div className="max-w-6xl mx-auto flex flex-col">
-          <h2 className="text-6xl text-[#165620] font-extrabold leading-tight uppercase mb-8">
+          <h2 className="text-6xl text-[#165620] font-medium leading-tight uppercase mb-8">
             Our Partners
           </h2>
           <p className="text-2xl font-extralight mb-12">
@@ -18,14 +18,14 @@ const OurPartnersMainSection = () => {
             and help steer it forward.
           </p>
 
-          <ul className="divide-y-2 divide-[#165620] mb-16 text-2xl font-extralight">
-            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#165620]">
+          <ul className="divide-y-2 divide-[#16562083] mb-16 text-2xl font-extralight">
+            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#16562083]">
               <div className="px-8 flex items-center justify-center">
                 <img src="/images/patner_one.png" alt="patner_one logo" />
               </div>
 
               <div className="p-12">
-                <h3 className="mb-2 text-[#165620] font-bold">
+                <h3 className="mb-2 text-[#165620] font-medium">
                   The Government of Malawi & CDI
                 </h3>
                 <p>
@@ -35,13 +35,13 @@ const OurPartnersMainSection = () => {
               </div>
             </li>
 
-            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#165620]">
+            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#16562083]">
               <div className="px-8 flex items-center justify-center">
                 <img src="/images/loowatt.png" alt="loowatt logo" />
               </div>
 
               <div className="p-12">
-                <h3 className="mb-2 text-[#165620] font-bold">Loowatt</h3>
+                <h3 className="mb-2 text-[#165620] font-medium">Loowatt</h3>
                 <p>
                   Because water access is a common issue faced in the areas we
                   work in, we partnered with a company that offers waterless
@@ -50,13 +50,13 @@ const OurPartnersMainSection = () => {
               </div>
             </li>
 
-            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#165620]">
+            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#16562083]">
               <div className="px-8 flex items-center justify-center">
                 <img src="/images/envirofit.png" alt="envirofit logo" />
               </div>
 
               <div className="p-12">
-                <h3 className="mb-2 text-[#165620] font-bold">Envirofit</h3>
+                <h3 className="mb-2 text-[#165620] font-medium">Envirofit</h3>
                 <p>
                   This is a non-profit organization. Envirofit is the world’s
                   leading manufacturer of clean, efficient cookstoves that save
@@ -65,13 +65,13 @@ const OurPartnersMainSection = () => {
               </div>
             </li>
 
-            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#165620]">
+            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#16562083]">
               <div className="px-8 flex items-center justify-center">
                 <img src="/images/agricane.png" alt="agricane logo" />
               </div>
 
               <div className="p-12">
-                <h3 className="mb-2 text-[#165620] font-bold">Agricane</h3>
+                <h3 className="mb-2 text-[#165620] font-medium">Agricane</h3>
                 <p>
                   We partnered with the leading pan-African agriculture
                   management company to ensure the productivity of the fruit
@@ -80,13 +80,13 @@ const OurPartnersMainSection = () => {
               </div>
             </li>
 
-            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#165620]">
+            <li className="grid grid-cols-[1fr_4fr] items-center justify-center divide-x-2 divide-[#16562083]">
               <div className="px-8 flex items-center justify-center">
                 <img src="/images/bboxx.png" alt="bboxx logo" />
               </div>
 
               <div className="p-12">
-                <h3 className="mb-2 text-[#165620] font-bold">Bboxx</h3>
+                <h3 className="mb-2 text-[#165620] font-medium">Bboxx</h3>
                 <p>
                   We sought the services of the leading global supplier of PAYG
                   solar home systems for affordable energy solutions for our
