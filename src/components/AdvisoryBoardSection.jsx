@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import teamData from "../../teamData.json";
 
 const AdvisoryBoardSection = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  // Default showing 6 team members, or all if showAll is true
+  const visibleMembers = showAll ? teamData : teamData.slice(0, 6);
+
+  const handleViewAll = () => {
+    setShowAll(!showAll);
+  };
+
   return (
     <section className="my-24 px-8">
       <div className="max-w-[1320px] mx-auto bg-[#165620] text-[#FBEADC] py-16 px-4">
@@ -13,118 +23,38 @@ const AdvisoryBoardSection = () => {
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s,
           </p>
-
           <ul className="grid grid-cols-3 gap-8 mb-16 w-full">
-            <li className="bg-[#FFF6EE] text-[#165620] border border-[#cc7e6b79] p-6">
-              <div className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
-                <img src="/images/profile_photo.jpg" alt="profile photo" />
-              </div>
-              <h3 className="font-medium">Niccolò Miranda from Italy</h3>
-              <p className="max-w-56 mb-6 font-extralight leading-tight">
-                Creative Director / Interactive Designer & Developer
-              </p>
-
-              <a
-                className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
-                href="#"
+            {visibleMembers.map((member) => (
+              <li
+                key={member.id}
+                className="bg-[#FFF6EE] text-[#165620] border border-[#cc7e6b79] p-6"
               >
-                <p>Read more</p>
-                <img src="/icons/left_arr.svg" alt="Left arrow icon" />
-              </a>
-            </li>
+                <div className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
+                  <img src={member.imageUrl} alt="profile photo" />
+                </div>
+                <h3 className="font-medium">
+                  {member.name} from {member.country}
+                </h3>
+                <p className="max-w-56 mb-6 font-extralight leading-tight">
+                  {member.role}
+                </p>
 
-            <li className="bg-[#FFF6EE] text-[#165620] border border-[#cc7e6b8c] p-6">
-              <div className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
-                <img src="/images/profile_photo.jpg" alt="profile photo" />
-              </div>
-              <h3 className="font-medium">Niccolò Miranda from Italy</h3>
-              <p className="max-w-56 mb-6 font-extralight leading-tight">
-                Creative Director / Interactive Designer & Developer
-              </p>
-
-              <a
-                className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
-                href="#"
-              >
-                <p>Read more</p>
-                <img src="/icons/left_arr.svg" alt="Left arrow icon" />
-              </a>
-            </li>
-            <li className="bg-[#FFF6EE] text-[#165620] border border-[#cc7e6b8c] p-6">
-              <div className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
-                <img src="/images/profile_photo.jpg" alt="profile photo" />
-              </div>
-              <h3 className="font-medium">Niccolò Miranda from Italy</h3>
-              <p className="max-w-56 mb-6 font-extralight leading-tight">
-                Creative Director / Interactive Designer & Developer
-              </p>
-
-              <a
-                className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
-                href="#"
-              >
-                <p>Read more</p>
-                <img src="/icons/left_arr.svg" alt="Left arrow icon" />
-              </a>
-            </li>
-
-            <li className="bg-[#FFF6EE] text-[#165620] border border-[#cc7e6b8c] p-6">
-              <div className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
-                <img src="/images/profile_photo.jpg" alt="profile photo" />
-              </div>
-              <h3 className="font-medium">Niccolò Miranda from Italy</h3>
-              <p className="max-w-56 mb-6 font-extralight leading-tight">
-                Creative Director / Interactive Designer & Developer
-              </p>
-
-              <a
-                className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
-                href="#"
-              >
-                <p>Read more</p>
-                <img src="/icons/left_arr.svg" alt="Left arrow icon" />
-              </a>
-            </li>
-
-            <li className="bg-[#FFF6EE] text-[#165620] border border-[#cc7e6b8c] p-6">
-              <div className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
-                <img src="/images/profile_photo.jpg" alt="profile photo" />
-              </div>
-              <h3 className="font-medium">Niccolò Miranda from Italy</h3>
-              <p className="max-w-56 mb-6 font-extralight leading-tight">
-                Creative Director / Interactive Designer & Developer
-              </p>
-
-              <a
-                className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
-                href="#"
-              >
-                <p>Read more</p>
-                <img src="/icons/left_arr.svg" alt="Left arrow icon" />
-              </a>
-            </li>
-
-            <li className="bg-[#FFF6EE] text-[#165620] border border-[#cc7e6b8c] p-6">
-              <div className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
-                <img src="/images/profile_photo.jpg" alt="profile photo" />
-              </div>
-              <h3 className="font-medium">Niccolò Miranda from Italy</h3>
-              <p className="max-w-56 mb-6 font-extralight leading-tight">
-                Creative Director / Interactive Designer & Developer
-              </p>
-
-              <a
-                className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
-                href="#"
-              >
-                <p>Read more</p>
-                <img src="/icons/left_arr.svg" alt="Left arrow icon" />
-              </a>
-            </li>
+                <a
+                  className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
+                  href="#"
+                >
+                  <p>Read more</p>
+                  <img src="/icons/left_arr.svg" alt="Left arrow icon" />
+                </a>
+              </li>
+            ))}
           </ul>
 
-          <button className="bg-[#165620] text-sm uppercase border border-[#FFF6EE] text-white self-center flex gap-2 items-center justify-center py-3 px-8">
-            <p>View All</p>
+          <button
+            onClick={handleViewAll}
+            className="bg-[#165620] text-sm uppercase border border-[#FFF6EE] text-white self-center flex gap-2 items-center justify-center py-3 px-8"
+          >
+            <p>{showAll ? "Show Less" : "View All"}</p>
             <img src="icons/rght_arrow.svg" alt="rght arrow icon" />
           </button>
         </div>

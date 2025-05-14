@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "country": "United States",
+    "role": "Creative Director",
+    "description": "Creative Director with over 10 years of experience in brand strategy and visual design",
+    "imageUrl": "/images/profile_photo.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Marco Rossi",
+    "country": "Italy",
+    "role": "Lead Developer",
+    "description": "Full-stack developer specializing in React and modern JavaScript frameworks",
+    "imageUrl": "/images/profile_photo.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Emily Chen",
+    "country": "Singapore",
+    "role": "UX Designer",
+    "description": "Human-centered designer passionate about creating intuitive digital experiences",
+    "imageUrl": "/images/profile_photo.jpg"
+  },
+  {
+    "id": 4,
+    "name": "David Okafor",
+    "country": "Nigeria",
+    "role": "Project Manager",
+    "description": "Detail-oriented manager ensuring projects are delivered on time and within scope",
+    "imageUrl": "/images/profile_photo.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Sophia Martinez",
+    "country": "Spain",
+    "role": "Content Strategist",
+    "description": "Content expert with a background in digital marketing and brand storytelling",
+    "imageUrl": "/images/profile_photo.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Hiroshi Tanaka",
+    "country": "Japan",
+    "role": "UI Designer",
+    "description": "Visual designer specializing in creating beautiful and functional user interfaces",
+    "imageUrl": "/images/profile_photo.jpg"
+  }
+]
