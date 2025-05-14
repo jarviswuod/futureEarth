@@ -2,7 +2,7 @@ import React from "react";
 
 const OnGoingProjectsSection = () => {
   return (
-    <section className="my-16 -mb-32 px-8">
+    <section className="my-24 -mb-32 px-8">
       <div className="max-w-[1320px] mx-auto">
         <div className="bg-[#165620] text-[#FBEADC] pb-28 py-16 px-4 text-center">
           <h2 className="text-6xl font-medium leading-tight uppercase mb-8">

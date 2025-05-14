@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeBenefitsSection = () => {
   return (
-    <section className="my-16 px-8">
+    <section className="my-20 px-8">
       <div className="max-w-[1320px] py-16 px-4 bg-black text-white mx-auto flex flex-col items-center justify-center">
         <h2 className="text-6xl text-[#FBEADC] font-medium leading-tight uppercase mb-8">
           Benefits

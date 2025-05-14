@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeHouseDesignSection = () => {
   return (
-    <section className="my-16 px-8">
+    <section className="my-24 px-8">
       <div class="max-w-[1320px] mx-auto grid grid-cols-[5fr_7fr] items-center">
         <div className="relative">
           <img

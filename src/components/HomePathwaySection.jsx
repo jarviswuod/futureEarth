@@ -2,7 +2,7 @@ import React from "react";
 
 const HomePathwaySection = () => {
   return (
-    <section className="my-16 px-8">
+    <section className="my-24 px-8">
       <div class="max-w-[1320px] mx-auto grid grid-cols-[7fr_5fr] items-center">
         <div className="bg-[#FBEADC] pl-16 pr-56 py-12">
           <h2 className="text-6xl text-[#165620] font-medium leading-tight uppercase mb-8">
