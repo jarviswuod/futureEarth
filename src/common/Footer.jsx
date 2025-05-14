@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-[#165620] text-[#DBDBDB]">
-      <div className="max-w-[1320px] mx-auto pt-24 px-4">
+      <div className="max-w-[1320px] mx-auto pt-16 px-4">
         <div className="grid grid-cols-4 mb-12 text-base font-extralight">
           <ul className="flex flex-col gap-4 list-disc">
             <li className="list-none text-2xl font-bold mb-4 -translate-x-6">
@@ -40,22 +40,21 @@ const Footer = () => {
             </li>
             <li>REGIONAL CONTACT US</li>
             <li>CONTACT US FORM</li>
+            <li className="mt-8 list-none col-start-4 col-end-5 grid grid-cols-[auto_1fr] gap-2 border border-[#fbeadc5b] p-12">
+              <div>
+                <img src="/icons/location_icon.svg" alt="Location icon" />
+              </div>
+              <p>
+                Future Earth, Suite 380 1839 S Alma School Rd Mesa, AZ 85210 USA
+                480 649 4127
+              </p>
+            </li>
           </ul>
-
-          <div className="col-start-4 col-end-5 grid grid-cols-[auto_1fr] gap-2 border border-[#fbeadc5b] p-12">
-            <div>
-              <img src="/icons/location_icon.svg" alt="Location icon" />
-            </div>
-            <p>
-              Future Earth, Suite 380 1839 S Alma School Rd Mesa, AZ 85210 USA
-              480 649 4127
-            </p>
-          </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4 py-8 border-t border-[#fbeadc25]">
-          <ul className="flex items-center gap-4">
-            <li>
+        <div className="flex items-center justify-between gap-4 py-6 border-t border-[#fbeadc25] font-extralight">
+          <ul className="flex items-center gap-3">
+            <li className="mr-3">
               <p>Get In Touch</p>
             </li>
             <li>

@@ -2,13 +2,13 @@ import React from "react";
 
 const HomePathwaySection = () => {
   return (
-    <section>
-      <div class="max-w-[1320px] mx-auto grid grid-cols-[7fr_5fr] items-center py-12">
-        <div className="bg-[#FBEADC] pl-16 pr-56 py-16">
-          <h2 className="text-6xl text-[#165620] font-extrabold leading-tight uppercase mb-8">
+    <section className="my-16 px-8">
+      <div class="max-w-[1320px] mx-auto grid grid-cols-[7fr_5fr] items-center">
+        <div className="bg-[#FBEADC] pl-16 pr-56 py-12">
+          <h2 className="text-6xl text-[#165620] font-medium leading-tight uppercase mb-8">
             PATHWAY
           </h2>
-          <p className="text-lg font-light mb-8 max-w-xl">
+          <p className="text-lg font-extralight mb-8 max-w-xl">
             Future Earth’s blueprint is based on a model that was designed by
             one of our founders, Maya Minkova, 25 years ago while still a
             student, for a safe and sustainable homes project in South African
@@ -16,7 +16,7 @@ const HomePathwaySection = () => {
             technology, housing, women and youth) model as the framework that
             outlines our projects.
           </p>
-          <p className="text-lg font-light mb-8 max-w-xl">
+          <p className="text-lg font-extralight mb-8 max-w-xl">
             We believe that women and the youth, who make up more than half of
             the society, are critical in unlocking self-development. The project
             will target women as homeowners, giving them assets and credit and

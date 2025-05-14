@@ -2,7 +2,7 @@ import React from "react";
 
 const OurPartnersSection = () => {
   return (
-    <section className="mb-16">
+    <section className="my-16 px-8">
       <div className="max-w-[1320px] mx-auto">
         <div className="bg-[#FBEADC] py-12 px-4 flex items-center flex-col text-center">
           <h2 className="text-6xl text-[#165620] font-extrabold leading-tight uppercase mb-8">

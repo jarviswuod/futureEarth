@@ -2,10 +2,10 @@ import React from "react";
 
 const OnGoingProjectsSection = () => {
   return (
-    <section className="">
+    <section className="my-16 -mb-32 px-8">
       <div className="max-w-[1320px] mx-auto">
-        <div className="bg-[#165620] text-[#FBEADC] py-28 px-4  text-center">
-          <h2 className="text-6xl font-extrabold leading-tight uppercase mb-8">
+        <div className="bg-[#165620] text-[#FBEADC] pb-28 py-16 px-4 text-center">
+          <h2 className="text-6xl font-medium leading-tight uppercase mb-8">
             ONGOING PROJECTS
           </h2>
           <p className="text-2xl font-extralight mb-20 text-center max-w-6xl mx-auto">

@@ -2,8 +2,8 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 w-full bg-[#16562078] text-white">
-      <div className="max-w-[1320px] mx-auto flex items-center justify-between uppercase p-4">
+    <header className="fixed top-0 left-0 w-full bg-[#16562078] text-white px-4">
+      <div className="max-w-[1320px] mx-auto flex items-center justify-between uppercase py-4">
         <a
           className="flex items-center justify-center text-2xl font-bold gap-2"
           href="/"

@@ -13,7 +13,7 @@ const HomeHeroSection = () => {
       <div className="max-w-[1320px] mx-auto pt-12 pb-8">
         <div className="grid grid-cols-[4fr_5fr] items-center justify-items-center h-screen">
           <div>
-            <h1 className="text-6xl font-extrabold leading-tight uppercase mb-8">
+            <h1 className="text-6xl font-medium leading-tight uppercase mb-8">
               Our Vision & Promise
             </h1>
             <p className="text-xl font-light mb-8 max-w-xl">
@@ -39,7 +39,7 @@ const HomeHeroSection = () => {
           </div>
         </div>
         <ul className="grid grid-cols-3 col-span-2 items-start font-light">
-          <li className="uppercase flex items-center justify-center gap-2">
+          <li className="uppercase flex items-center justify-center gap-2 justify-self-start">
             <span>On Going Projects</span>
             <img src="/icons/right_arrow.svg" alt="right arrow" />
           </li>
@@ -48,7 +48,7 @@ const HomeHeroSection = () => {
             <span>Scroll to Explore</span>
             <img src="/icons/bottom_arrow.svg" alt="bottom arrow" />
           </li>
-          <li className="uppercase flex items-center justify-center gap-2">
+          <li className="uppercase flex items-center justify-center gap-2 justify-self-end">
             <span>Our Partners</span>
             <img src="/icons/right_arrow.svg" alt="right arrow" />
           </li>
