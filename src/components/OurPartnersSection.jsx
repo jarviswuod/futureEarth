@@ -4,11 +4,11 @@ const OurPartnersSection = () => {
   return (
     <section className="my-24 px-8">
       <div className="max-w-[1320px] mx-auto">
-        <div className="bg-[#FBEADC] py-12 px-4 flex items-center flex-col text-center">
-          <h2 className="text-6xl text-[#165620] font-extrabold leading-tight uppercase mb-8">
+        <div className="bg-[#FBEADC] py-16 px-4">
+          <h2 className="text-6xl text-[#165620] text-center font-medium leading-tight uppercase mb-8">
             OUR PARTNERS
           </h2>
-          <p className="text-2xl font-extralight mb-12 text-center max-w-6xl mx-auto">
+          <p className="text-xl font-extralight mb-12 text-center max-w-6xl mx-auto">
             We have formed solid partnerships with these organizations, on the
             basis of our shared vision.
           </p>
@@ -35,7 +35,7 @@ const OurPartnersSection = () => {
               <img src="icons/right_arrow_.svg" alt="right arrow icon" />
             </button>
           </div>
-          <button className="bg-[#165620] uppercase text-white flex gap-2 items-center justify-center py-4 px-8">
+          <button className="bg-[#165620] place-self-center uppercase text-white flex gap-2 items-center justify-center py-4 px-8">
             <p>Learn More</p>
             <img src="icons/rght_arrow.svg" alt="rght arrow icon" />
           </button>

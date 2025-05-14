@@ -2,17 +2,17 @@ import React from "react";
 
 const ProductIntroductionSection = () => {
   return (
-    <section className="my-12">
+    <section className="my-24 px-8">
       <div class="max-w-[1320px] mx-auto">
-        <h2 className="text-6xl text-[#165620] text-center font-extrabold leading-tight uppercase mb-8">
+        <h2 className="text-6xl text-[#165620] text-center font-medium leading-tight uppercase mb-8">
           PRODUCT INTRODUCTION
         </h2>
-        <p className="text-lg font-light mb-4 max-w-4xl mx-auto text-center">
+        <p className="text-lg font-extralight mb-4 max-w-4xl mx-auto text-center">
           To enable ‘self-development’ at scale so as to break the poverty
           cycle, Future Earth found its solution in the iRise HomesTM & Gardens
           initiative.
         </p>
-        <p className="text-lg font-light mb-12 max-w-4xl mx-auto text-center">
+        <p className="text-lg font-extralight mb-12 max-w-4xl mx-auto text-center">
           Future Earth builds affordable houses and delivers them with a variety
           of facilities that provide families the basic requirements and the
           tools for self-development.
@@ -34,15 +34,15 @@ const ProductIntroductionSection = () => {
                 alt="solar icon"
               />
             </div>
-            <h1 className="text-6xl font-extrabold leading-tight uppercase mb-8">
+            <h2 className="text-6xl font-medium leading-tight uppercase mb-4">
               Solar Power
-            </h1>
-            <p className="text-lg font-light mb-8 max-w-xl">
+            </h2>
+            <p className="text-lg font-extralight mb-8 max-w-xl">
               Basic access to electricity improves safety, security, and
               productivity while reducing household expenses for lighting
               sources.
             </p>
-            <ul className="flex gap-4 mb-8 mt-8">
+            <ul className="flex gap-4 mb-12 mt-8">
               <li className="h-3 w-9 rounded-full bg-yellow-300"></li>
               <li className="h-3 w-3 rounded-full bg-white"></li>
               <li className="h-3 w-3 rounded-full bg-white"></li>
@@ -62,37 +62,37 @@ const ProductIntroductionSection = () => {
         </div>
 
         <ul className="grid grid-cols-6 text-xs uppercase text-white">
-          <li className="bg-[#51A501] p-4 py-6">
+          <li className="bg-[#51A501] p-4 py-8">
             <figure className="flex flex-col gap-2 items-center">
               <img src="/icons/solar_icon.svg" alt="solar icon" />
               <figcaption>Solar Panel</figcaption>
             </figure>
           </li>
-          <li className="bg-[#165620F2] p-4 py-6">
+          <li className="bg-[#165620F2] p-4 py-8">
             <figure className="flex flex-col gap-2 items-center">
               <img src="/icons/toilet_icon.svg" alt="toilet icon" />
               <figcaption>Waterless Toilet</figcaption>
             </figure>
           </li>
-          <li className="bg-[#165620E5] p-4 py-6">
+          <li className="bg-[#165620E5] p-4 py-8">
             <figure className="flex flex-col gap-2 items-center">
               <img src="/icons/house_icon.svg" alt="house icon" />
               <figcaption>Low-cost mortage</figcaption>
             </figure>
           </li>
-          <li className="bg-[#165620F2] p-4 py-6">
+          <li className="bg-[#165620F2] p-4 py-8">
             <figure className="flex flex-col gap-2 items-center">
               <img src="/icons/tree_icon.svg" alt="tree icon" />
               <figcaption>Garden to plan trees</figcaption>
             </figure>
           </li>
-          <li className="bg-[#225F2BF2] p-4 py-6">
+          <li className="bg-[#225F2BF2] p-4 py-8">
             <figure className="flex flex-col gap-2 items-center">
               <img src="/icons/fire_icon.svg" alt="fire icon" />
               <figcaption>Clean, efficient cook-stove</figcaption>
             </figure>
           </li>
-          <li className="bg-[#2D6736E5] p-4 py-6">
+          <li className="bg-[#2D6736E5] p-4 py-8">
             <figure className="flex flex-col gap-2 items-center">
               <img src="/icons/internet_icon.svg" alt="internet icon" />
               <figcaption>Internet Access Device</figcaption>
