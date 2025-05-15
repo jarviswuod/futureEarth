@@ -93,9 +93,9 @@ const ContactInformationSection = () => {
   };
 
   return (
-    <section className="my-24 px-8">
+    <section className="my-16 sm:my-20 md:my-24 lg:px-8">
       <div className="max-w-[1320px] bg-[#FBEADC] mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr]">
-        <div className="bg-[#165620] text-white text-base font-light py-12">
+        <div className="bg-[#165620] text-white text-base font-light px-4 py-8 sm:py-12">
           <div className="max-w-xs mx-auto">
             <h2 className="text-2xl font-bold mb-4">Regional Contacts</h2>
             <ul className="space-y-6">
@@ -139,7 +139,7 @@ const ContactInformationSection = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 max-w-2xl mx-auto py-12 text-base">
+        <div className="flex flex-col gap-4 max-w-2xl mx-auto px-4 py-8 sm:py-12 text-base">
           <h2 className="text-2xl font-bold mb-4">Talk to Us</h2>
 
           {submitSuccess && (

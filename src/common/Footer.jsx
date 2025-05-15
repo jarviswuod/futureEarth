@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#165620] text-[#DBDBDB]">
       <div className="max-w-[1320px] mx-auto pt-8 sm:pt-12 md:pt-16 px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 mb-12 text-sm sm:text-base font-extralight">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-6 mb-12 text-sm sm:text-base font-extralight">
           <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
             <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
               <h2>HOME</h2>
