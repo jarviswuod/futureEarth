@@ -2,10 +2,10 @@ import React from "react";
 
 const AboutSustainableLivingSection = () => {
   return (
-    <section className="my-24 px-8">
-      <div class="max-w-[1320px] bg-[#FBEADC] mx-auto grid grid-cols-2 items-center">
-        <div className="p-16">
-          <h2 className="text-6xl text-[#165620] font-medium leading-tight uppercase mb-8">
+    <section className="my-0 sm:my-20 md:my-24 lg:px-8">
+      <div class="max-w-[1320px] bg-[#FBEADC] p-4 mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
+        <div className="lg:p-16">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 text-[#165620] font-medium leading-tight uppercase">
             About Sustainable Living
           </h2>
 
@@ -31,9 +31,10 @@ const AboutSustainableLivingSection = () => {
           </p>
         </div>
 
-        <div>
+        <div className="max-lg:row-start-1">
           <figure>
             <img
+              className="hidden lg:block"
               src="/images/illustration_of_women_in_a_market.png"
               alt="illustration of women in a market"
             />
