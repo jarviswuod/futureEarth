@@ -3,13 +3,13 @@ import React from "react";
 const AboutSustainableLivingSection = () => {
   return (
     <section className="my-0 sm:my-20 md:my-24 lg:px-8">
-      <div class="max-w-[1320px] bg-[#FBEADC] p-4 mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
-        <div className="lg:p-16">
+      <div class="max-w-[1320px] bg-[#FBEADC] p-4 mx-auto grid grid-cols-1 lg:grid-cols-[4fr_3fr] items-center">
+        <div className="lg:p-16 text-lg font-extralight max-w-xl">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 text-[#165620] font-medium leading-tight uppercase">
             About Sustainable Living
           </h2>
 
-          <p className="text-lg font-extralight mb-8 max-w-xl">
+          <p className="mb-4 sm:mb-8">
             Aid that isn't accompanied by a strategy for long-term
             sustainability is certain to fail. Driven by the desire to create
             lasting change from self-sustainable economies on the ground, we
@@ -19,7 +19,7 @@ const AboutSustainableLivingSection = () => {
             fruit garden to be tended for income generation.
           </p>
 
-          <p className="text-lg font-extralight mb-8 max-w-xl">
+          <p className="mb-4 sm:mb-8">
             Beyond providing people with the fundamental elements to achieve a
             basic living standard, that is food, shelter, energy and basic
             income, Future Earth is leveraging on technology to provide them

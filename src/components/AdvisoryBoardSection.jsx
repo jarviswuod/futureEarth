@@ -12,18 +12,19 @@ const AdvisoryBoardSection = () => {
   };
 
   return (
-    <section className="my-24 px-8">
+    <section className="my-16 sm:my-20 md:my-24 lg:px-8">
       <div className="max-w-[1320px] mx-auto bg-[#165620] text-[#FBEADC] py-16 px-4">
         <div className="max-w-6xl mx-auto flex flex-col">
-          <h2 className="text-6xl text-[#FBEADC] text-center font-medium leading-tight uppercase mb-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 text-[#FBEADC] text-start lg:text-center font-medium leading-tight uppercase">
             Advisory Board
           </h2>
-          <p className="text-2xl font-extralight mb-12 text-center">
+          <p className="text-xl sm:text-2xl font-extralight mb-4 sm:mb-8 md:mb-12 text-start lg:text-center">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s,
+            ever since the 1500s
           </p>
-          <ul className="grid grid-cols-3 gap-8 mb-16 w-full">
+
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 w-full">
             {visibleMembers.map((member) => (
               <li
                 key={member.id}

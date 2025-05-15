@@ -2,10 +2,10 @@ import React from "react";
 
 const NewsUpdateSection = () => {
   return (
-    <section className="my-24 px-8">
-      <div className="max-w-[1320px] mx-auto bg-[#165620] text-[#FBEADC] py-12 px-4 grid grid-cols-[auto_1fr] items-center">
-        <div className="max-w-md px-20 py-12">
-          <h2 className="text-6xl font-extrabold leading-tight uppercase mb-8">
+    <section className="my-16 sm:my-20 md:my-24 xl:px-8">
+      <div className="max-w-[1320px] mx-auto bg-[#165620] text-[#FBEADC] py-12 px-4 grid grid-cols-1 lg:grid-cols-[auto_1fr] items-center">
+        <div className="lg:max-w-md lg:px-12 xl:px-20 lg:py-12">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 font-extrabold leading-tight uppercase">
             News Updates
           </h2>
           <p className="text-lg font-extralight mb-8 max-w-xl">
@@ -18,8 +18,8 @@ const NewsUpdateSection = () => {
           </button>
         </div>
 
-        <div className="pr-16">
-          <div className="place-self-end self-start space-x-4 py-8">
+        <div className="xl:pr-16">
+          <div className="hidden lg:block place-self-end self-start space-x-4 py-8">
             <button>
               <img src="/icons/left_arrow_icon.svg" alt="left Arrow icon" />
             </button>
@@ -27,8 +27,8 @@ const NewsUpdateSection = () => {
               <img src="/icons/right_arrow_icon.svg" alt="right Arrow icon" />
             </button>
           </div>
-          <ul className="grid grid-cols-3 gap-4">
-            <li className="bg-[#FBEADC] text-[#165620] p-2">
+          <ul className="grid grid-cols-3 gap-2 sm:gap-4">
+            <li className="bg-[#FBEADC] text-[#165620] p-1 sm:p-2">
               <div
                 style={{
                   backgroundImage:
@@ -39,7 +39,7 @@ const NewsUpdateSection = () => {
                 className="h-40 w-full flex items-end justify-start mb-4"
               ></div>
               <div className="max-w-48 mx-auto">
-                <h3 className="text-2xl font-medium mb-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 md:mb-8">
                   East African hardwoods
                 </h3>
                 <a
@@ -51,7 +51,7 @@ const NewsUpdateSection = () => {
               </div>
             </li>
 
-            <li className="bg-[#FBEADC] text-[#165620] p-2">
+            <li className="bg-[#FBEADC] text-[#165620] p-1 sm:p-2">
               <div
                 style={{
                   backgroundImage:
@@ -62,7 +62,7 @@ const NewsUpdateSection = () => {
                 className="h-40 w-full flex items-end justify-start mb-4"
               ></div>
               <div className="max-w-48 mx-auto">
-                <h3 className="text-2xl font-medium mb-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 md:mb-8">
                   East African hardwoods
                 </h3>
                 <a
@@ -74,7 +74,7 @@ const NewsUpdateSection = () => {
               </div>
             </li>
 
-            <li className="bg-[#FBEADC] text-[#165620] p-2">
+            <li className="bg-[#FBEADC] text-[#165620] p-1 sm:p-2">
               <div
                 style={{
                   backgroundImage:
@@ -85,7 +85,7 @@ const NewsUpdateSection = () => {
                 className="h-40 w-full flex items-end justify-start mb-4"
               ></div>
               <div className="max-w-48 mx-auto">
-                <h3 className="text-2xl font-medium mb-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-4 sm:mb-6 md:mb-8">
                   East African hardwoods
                 </h3>
                 <a
