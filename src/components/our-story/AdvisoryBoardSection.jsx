@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import teamData from "../assets/teamData.json";
+import teamData from "./teamData.json";
 
 const AdvisoryBoardSection = () => {
   const [showAll, setShowAll] = useState(false);
@@ -12,7 +12,10 @@ const AdvisoryBoardSection = () => {
   };
 
   return (
-    <section className="my-16 sm:my-20 md:my-24 lg:px-8">
+    <section
+      aria-labelledby="advisory-board-heading"
+      className="my-16 sm:my-20 md:my-24 lg:px-8"
+    >
       <div className="max-w-[1320px] mx-auto bg-[#165620] text-[#FBEADC] py-16 px-4">
         <div className="max-w-6xl mx-auto flex flex-col">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 text-[#FBEADC] text-start lg:text-center font-medium leading-tight uppercase">
@@ -30,23 +33,25 @@ const AdvisoryBoardSection = () => {
                 key={member.id}
                 className="bg-[#FFF6EE] text-[#165620] border border-[#cc7e6b79] p-6"
               >
-                <div className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
-                  <img src={member.imageUrl} alt="profile photo" />
-                </div>
-                <h3 className="font-medium">
-                  {member.name} from {member.country}
-                </h3>
-                <p className="max-w-56 mb-6 font-extralight leading-tight">
-                  {member.role}
-                </p>
+                <article>
+                  <figure className="w-fit rounded-full overflow-hidden mb-4 border border-[#CC7F6B]">
+                    <img src={member.imageUrl} alt="profile photo" />
+                  </figure>
+                  <h3 className="font-medium">
+                    {member.name} from {member.country}
+                  </h3>
+                  <p className="max-w-56 mb-6 font-extralight leading-tight">
+                    {member.role}
+                  </p>
 
-                <a
-                  className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
-                  href="#"
-                >
-                  <p>Read more</p>
-                  <img src="/icons/left_arr.svg" alt="Left arrow icon" />
-                </a>
+                  <a
+                    className="text-[#CC7F6B] text-xs uppercase flex items-center gap-2"
+                    href="#"
+                  >
+                    <p>Read more</p>
+                    <img src="/icons/left_arr.svg" alt="Left arrow icon" />
+                  </a>
+                </article>
               </li>
             ))}
           </ul>

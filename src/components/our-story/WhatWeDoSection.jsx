@@ -2,7 +2,10 @@ import React from "react";
 
 const WhatWeDoSection = () => {
   return (
-    <section className="my-16 sm:my-20 md:my-24 lg:px-8">
+    <section
+      aria-labelledby="What-we-do-heading"
+      className="my-16 sm:my-20 md:my-24 lg:px-8"
+    >
       <div className="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr]">
         <div className="bg-[#FBEADC] max-lg:max-h-[320px] flex items-center">
           <div

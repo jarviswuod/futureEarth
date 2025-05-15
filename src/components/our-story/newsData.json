@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "image": "/images/boards_piled_together.png",
+    "title": "East African hardwoods",
+    "altText": "Wooden boards stacked together"
+  },
+  {
+    "id": 2,
+    "image": "/images/soil_carried_by_hands.jpg",
+    "title": "Sustainable soil practices",
+    "altText": "Hands holding rich soil"
+  },
+  {
+    "id": 3,
+    "image": "/images/tree_stump_gloves.jpg",
+    "title": "Forest conservation efforts",
+    "altText": "Work gloves on tree stump"
+  }
+]

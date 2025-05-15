@@ -1,0 +1,32 @@
+[
+  {
+    "logo": "/images/patner_one.png",
+    "alt": "patner_one logo",
+    "name": "The Government of Malawi & CDI",
+    "description": "This is chaired by H.E. Joyce Banda, who has dedicated her life to works that establish rural transformation in Africa."
+  },
+  {
+    "logo": "/images/loowatt.png",
+    "alt": "loowatt logo",
+    "name": "Loowatt",
+    "description": "Because water access is a common issue faced in the areas we work in, we partnered with a company that offers waterless home sanitation solutions meeting WHO health guidelines."
+  },
+  {
+    "logo": "/images/envirofit.png",
+    "alt": "envirofit logo",
+    "name": "Envirofit",
+    "description": "This is a non-profit organization. Envirofit is the world's leading manufacturer of clean, efficient cookstoves that save on money and fuel."
+  },
+  {
+    "logo": "/images/agricane.png",
+    "alt": "agricane logo",
+    "name": "Agricane",
+    "description": "We partnered with the leading pan-African agriculture management company to ensure the productivity of the fruit tree gardens with access to their international markets."
+  },
+  {
+    "logo": "/images/bboxx.png",
+    "alt": "bboxx logo",
+    "name": "Bboxx",
+    "description": "We sought the services of the leading global supplier of PAYG solar home systems for affordable energy solutions for our houses."
+  }
+]

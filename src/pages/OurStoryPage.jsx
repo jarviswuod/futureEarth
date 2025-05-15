@@ -1,12 +1,12 @@
 import React from "react";
 
 import HeroSection from "../common/HeroSection";
-import WhoWeAreSection from "../components/WhoWeAreSection";
-import WhatWeDoSection from "../components/WhatWeDoSection";
-import OurTeamSection from "../components/OurTeamSection";
-import AdvisoryBoardSection from "../components/AdvisoryBoardSection";
-import OurPartnersMainSection from "../components/OurPartnersMainSection";
-import NewsUpdateSection from "../components/NewsUpdateSection";
+import WhoWeAreSection from "../components/our-story/WhoWeAreSection";
+import WhatWeDoSection from "../components/our-story/WhatWeDoSection";
+import OurTeamSection from "../components/our-story/OurTeamSection";
+import AdvisoryBoardSection from "../components/our-story/AdvisoryBoardSection";
+import OurPartnersMainSection from "../components/our-story/OurPartnersMainSection";
+import NewsUpdateSection from "../components/our-story/NewsUpdateSection";
 
 const OurStoryPage = () => {
   return (
