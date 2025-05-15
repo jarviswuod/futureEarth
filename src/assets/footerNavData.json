@@ -1,0 +1,38 @@
+[
+  {
+    "title": "HOME",
+    "links": [
+      { "text": "OUR VISION / PROMISE", "url": "/vision" },
+      { "text": "BENEFITS", "url": "/benefits" },
+      { "text": "PATHWAY", "url": "/pathway" },
+      { "text": "ONGOING PROJECTS", "url": "/projects" },
+      { "text": "PARTNERS", "url": "/partners" }
+    ]
+  },
+  {
+    "title": "SUSTAINABLE LIVING",
+    "links": [
+      {
+        "text": "ABOUT SUSTAINABLE LIVING",
+        "url": "/sustainable-living/about"
+      },
+      { "text": "PRODUCT INTRODUCTION", "url": "/sustainable-living/products" }
+    ]
+  },
+  {
+    "title": "OUR STORY",
+    "links": [
+      { "text": "WHAT WE DO", "url": "/our-story/what-we-do" },
+      { "text": "WHO WE ARE", "url": "/our-story/who-we-are" },
+      { "text": "OUR PARTNERS", "url": "/our-story/partners" },
+      { "text": "NEWS UPDATES", "url": "/our-story/news" }
+    ]
+  },
+  {
+    "title": "CONTACT US",
+    "links": [
+      { "text": "REGIONAL CONTACT US", "url": "/contact/regional" },
+      { "text": "CONTACT US FORM", "url": "/contact/form" }
+    ]
+  }
+]

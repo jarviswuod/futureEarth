@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import teamData from "../../teamData.json";
+import teamData from "../assets/teamData.json";
 
 const OurTeamSection = () => {
   const [showAll, setShowAll] = useState(false);

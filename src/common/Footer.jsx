@@ -1,97 +1,78 @@
 import React from "react";
 
+import footerNavData from "../assets/footerNavData.json";
+import SocialLinks from "./SocialLinks";
+
+const NavigationSection = ({ title, links }) => (
+  <nav className="flex flex-col gap-4 md:gap-6 text-lg font-extralight">
+    <h2 className="text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
+      {title}
+    </h2>
+    <ul className="list-disc flex gap-2 md:gap-4 flex-col">
+      {links.map((link, index) => (
+        <li key={index}>
+          <a href={link.url} className="hover:text-white transition-colors">
+            {link.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+);
+
 const Footer = () => {
   return (
-    <footer className="bg-[#165620] text-[#DBDBDB]">
+    <footer className="bg-[#165620] text-[#DBDBDB]" aria-label="Site footer">
       <div className="max-w-[1320px] mx-auto pt-8 sm:pt-12 md:pt-16 px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-6 mb-12 text-sm sm:text-base font-extralight">
-          <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
-            <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
-              <h2>HOME</h2>
-            </li>
-            <li>OUR VISION / PROMISE</li>
-            <li>BENEFITS</li>
-            <li>PATHWAY</li>
-            <li>ONGOING PROJECTS</li>
-            <li>PARTNERS</li>
-          </ul>
+          {footerNavData.slice(0, 3).map((section, index) => (
+            <NavigationSection
+              key={index}
+              title={section.title}
+              links={section.links}
+            />
+          ))}
 
-          <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
-            <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
-              <h2>SUSTAINABLE LIVING</h2>
-            </li>
-            <li>ABOUT SUSTAINABLE LIVING</li>
-            <li>PRODUCT INTRODUCTION</li>
-          </ul>
-
-          <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
-            <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
-              <h2>OUR STORY</h2>
-            </li>
-            <li>WHAT WE DO</li>
-            <li>WHO WE ARE</li>
-            <li>OUR PARTNERS</li>
-            <li>NEWS UPDATES</li>
-          </ul>
-
-          <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
-            <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
-              <h2>CONTACT US</h2>
-            </li>
-            <li>REGIONAL CONTACT US</li>
-            <li>CONTACT US FORM</li>
-            <li className="mt-8 list-none col-start-4 col-end-5 grid grid-cols-[auto_1fr] gap-2 border border-[#fbeadc5b] p-12">
-              <div>
-                <img src="/icons/location_icon.svg" alt="Location icon" />
-              </div>
-              <p>
-                Future Earth, Suite 380 1839 S Alma School Rd Mesa, AZ 85210 USA
-                480 649 4127
-              </p>
-            </li>
-          </ul>
+          {/* Special handling for contact section with address */}
+          <div className="flex flex-col gap-4 md:gap-6 text-lg font-extralight">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
+              {footerNavData[3].title}
+            </h2>
+            <ul className="list-disc flex gap-2 md:gap-4 flex-col">
+              {footerNavData[3].links.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.url}
+                    className="hover:text-white transition-colors"
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+              <li className="mt-8 list-none grid grid-cols-[auto_1fr] gap-2 border border-[#fbeadc5b] p-12">
+                <div>
+                  <img src="/icons/location_icon.svg" alt="Location icon" />
+                </div>
+                <address className="not-italic">
+                  Future Earth, Suite 380 1839 S Alma School Rd Mesa, AZ 85210
+                  USA
+                  <br />
+                  <a
+                    href="tel:+14806494127"
+                    className="hover:text-white transition-colors"
+                  >
+                    480 649 4127
+                  </a>
+                </address>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="flex max-sm:flex-col items-stretch sm:items-center justify-between gap-4 py-6 border-none sm:border-t border-[#fbeadc25] font-extralight w-full divide-y-2 divide-[#fbeadc85]">
-          <ul className="flex items-center gap-3">
-            <li className="mr-3">
-              <p className="max-sm:uppercase max-sm:text-lg max-sm:font-bold">
-                Get In Touch
-              </p>
-            </li>
-            <li>
-              <a href="#">
-                <img src="/icons/linkedin_logo.svg" alt="linkedin logo" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="/icons/whatsapp_logo.svg" alt="whatsapp logo" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="/icons/facebook_logo.svg" alt="facebook logo" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="/icons/twitter_logo.svg" alt="twitter logo" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="/icons/youtube_logo.svg" alt="youtube logo" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="/icons/instgram_logo.svg" alt="instgram logo" />
-              </a>
-            </li>
-          </ul>
+        <div className="flex max-sm:flex-col items-stretch sm:items-center justify-between gap-4 py-6 border-none sm:border-t border-[#fbeadc25] font-extralight w-full max-sm:divide-y-2 divide-[#fbeadc85]">
+          <SocialLinks />
           <p className="text-sm max-sm:pt-2">
-            @ 2021 Future Earth Sustainalbe Living
+            &copy; {new Date().getFullYear()} Future Earth Sustainable Living
           </p>
         </div>
       </div>
