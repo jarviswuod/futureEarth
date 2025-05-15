@@ -4,7 +4,7 @@ import HeroSection from "../common/HeroSection";
 
 import AboutSustainableLivingSection from "../components/AboutSustainableLivingSection";
 import ProductIntroductionSection from "../components/ProductIntroductionSection";
-import OurPartnersSection from "../components/OurPartnersSection";
+import OurPartnersSection from "../common/OurPartnersSection";
 
 const SustainableLivingPage = () => {
   return (

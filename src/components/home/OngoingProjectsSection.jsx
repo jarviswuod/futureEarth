@@ -1,8 +1,11 @@
 import React from "react";
 
-const OnGoingProjectsSection = () => {
+const OngoingProjectsSection = () => {
   return (
-    <section className="my-16 sm:my-20 md:my-24 lg:-mb-32 lg:px-8">
+    <section
+      aria-labelledby="ongoing-projects-heading"
+      className="my-16 sm:my-20 md:my-24 lg:-mb-32 lg:px-8"
+    >
       <div className="max-w-[1320px] mx-auto">
         <div className="bg-[#165620] text-[#FBEADC] lg:pb-28 py-8 md:py-12 lg:py-16 px-4 text-start lg:text-center">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 font-medium leading-tight uppercase">
@@ -18,8 +21,8 @@ const OnGoingProjectsSection = () => {
             are the current projects were’ working on:
           </p>
         </div>
-        <ul className="grid grid-cols-2 px-4 lg:-translate-y-32 max-w-6xl mx-auto max-lg:bg-[#165620] text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium gap-4 max-sm:pb-8 max-lg:pb-12">
-          <li
+        <div className="grid grid-cols-2 px-4 lg:-translate-y-32 max-w-6xl mx-auto max-lg:bg-[#165620] text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium gap-4 max-sm:pb-8 max-lg:pb-12">
+          <article
             style={{
               backgroundImage:
                 "linear-gradient(to bottom, rgba(22, 86, 32, 0), rgba(22, 86, 32, 0.6)), url('/images/soil_carried_by_hands.jpg')",
@@ -29,9 +32,9 @@ const OnGoingProjectsSection = () => {
             className="h-48 sm:h-64 md:h-72 w-full p-1 sm:p-2 md:p-4 lg:p-8 flex items-end justify-start max-sm:uppercase border-2 md:border-4 lg:border-8 border-[#FBEADC]"
           >
             Malawi Project
-          </li>
+          </article>
 
-          <li
+          <article
             style={{
               backgroundImage:
                 "linear-gradient(to bottom, rgba(22, 86, 32, 0), rgba(22, 86, 32, 0.6)), url('/images/tree_stump_gloves.jpg')",
@@ -41,11 +44,11 @@ const OnGoingProjectsSection = () => {
             className="h-48 sm:h-64 md:h-72 w-full p-1 sm:p-2 md:p-4 lg:p-8 flex items-end justify-start max-sm:uppercase border-2 md:border-4 lg:border-8 border-[#FBEADC]"
           >
             Mozambique Project
-          </li>
-        </ul>
+          </article>
+        </div>
       </div>
     </section>
   );
 };
 
-export default OnGoingProjectsSection;
+export default OngoingProjectsSection;

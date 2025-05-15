@@ -1,19 +1,19 @@
 import React from "react";
 
-import HomeHeroSection from "../components/HomeHeroSection";
-import HomeHouseDesignSection from "../components/HomeHouseDesignSection";
-import HomeBenefitsSection from "../components/HomeBenefitsSection";
-import HomePathwaySection from "../components/HomePathwaySection";
-import OnGoingProjectsSection from "../components/OnGoingProjectsSection";
-import OurPartnersSection from "../components/OurPartnersSection";
+import HeroSection from "../components/home/HeroSection";
+import HouseDesignSection from "../components/home/HouseDesignSection";
+import BenefitsSection from "../components/home/BenefitsSection";
+import PathwaySection from "../components/home/PathwaySection";
+import OnGoingProjectsSection from "../components/home/OngoingProjectsSection";
+import OurPartnersSection from "../common/OurPartnersSection";
 
 const HomePage = () => {
   return (
     <>
-      <HomeHeroSection />
-      <HomeHouseDesignSection />
-      <HomeBenefitsSection />
-      <HomePathwaySection />
+      <HeroSection />
+      <HouseDesignSection />
+      <BenefitsSection />
+      <PathwaySection />
       <OnGoingProjectsSection />
       <OurPartnersSection />
     </>
