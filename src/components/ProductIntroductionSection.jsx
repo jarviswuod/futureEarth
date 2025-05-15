@@ -3,7 +3,7 @@ import React from "react";
 const ProductIntroductionSection = () => {
   return (
     <section className="my-16 sm:my-20 md:my-24 lg:px-8">
-      <div class="max-w-[1320px] mx-auto">
+      <div className="max-w-[1320px] mx-auto">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 text-[#165620] text-start lg:text-center font-medium leading-tight uppercase px-4">
           PRODUCT INTRODUCTION
         </h2>

@@ -1,0 +1,60 @@
+{
+  "navigation": [
+    {
+      "title": "HOME",
+      "links": [
+        { "text": "OUR VISION / PROMISE", "url": "/vision" },
+        { "text": "BENEFITS", "url": "/benefits" },
+        { "text": "PATHWAY", "url": "/pathway" },
+        { "text": "ONGOING PROJECTS", "url": "/projects" },
+        { "text": "PARTNERS", "url": "/partners" }
+      ]
+    },
+    {
+      "title": "SUSTAINABLE LIVING",
+      "links": [
+        {
+          "text": "ABOUT SUSTAINABLE LIVING",
+          "url": "/sustainable-living/about"
+        },
+        {
+          "text": "PRODUCT INTRODUCTION",
+          "url": "/sustainable-living/products"
+        },
+        { "text": "SOLAR POWER", "url": "/sustainable-living/solar" },
+        {
+          "text": "CLEAN EFFICIENT COOKING-STOVE",
+          "url": "/sustainable-living/cooking-stove"
+        },
+        { "text": "WATERLESS TOILET", "url": "/sustainable-living/toilet" },
+        { "text": "LOW COST MORTGAGE", "url": "/sustainable-living/mortgage" },
+        {
+          "text": "INTERNET ACCESS DEVICE",
+          "url": "/sustainable-living/internet"
+        },
+        {
+          "text": "MOSQUITO NETS & SCREENS",
+          "url": "/sustainable-living/mosquito-nets"
+        }
+      ]
+    },
+    {
+      "title": "OUR STORY",
+      "links": [
+        { "text": "WHAT WE DO", "url": "/our-story/what-we-do" },
+        { "text": "WHO WE ARE", "url": "/our-story/who-we-are" },
+        { "text": "OUR TEAM", "url": "/our-story/team" },
+        { "text": "ADVISORY BOARD", "url": "/our-story/advisory-board" },
+        { "text": "OUR PARTNERS", "url": "/our-story/partners" },
+        { "text": "NEWS UPDATES", "url": "/our-story/news" }
+      ]
+    },
+    {
+      "title": "CONTACT US",
+      "links": [
+        { "text": "REGIONAL CONTACT US", "url": "/contact/regional" },
+        { "text": "CONTACT US FORM", "url": "/contact/form" }
+      ]
+    }
+  ]
+}

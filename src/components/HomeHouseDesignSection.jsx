@@ -3,7 +3,7 @@ import React from "react";
 const HomeHouseDesignSection = () => {
   return (
     <section className="my-16 sm:my-20 md:my-24 lg:px-8">
-      <div class="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] items-center">
+      <div className="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_7fr] items-center">
         <div className="relative -mt-36 sm:-mt-56 md:-mt-72 lg:mt-0">
           <img
             className="w-full scale-95 lg:scale-125 max-lg:translate-y-1/2 translate-x-0 lg:translate-x-12"

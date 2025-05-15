@@ -3,7 +3,7 @@ import React from "react";
 const HomePathwaySection = () => {
   return (
     <section className="my-16 sm:my-20 md:my-24 lg:px-8">
-      <div class="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-[7fr_5fr] items-center">
+      <div className="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-[7fr_5fr] items-center">
         <div className="bg-[#FBEADC] px-4 max-[565px]:pt-44 pt-52 sm:pt-64 md:pt-72 lg:pl-16 lg:pr-56 lg:py-12">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8  text-[#165620] font-medium leading-tight uppercase">
             Pathway

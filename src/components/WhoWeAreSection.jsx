@@ -3,7 +3,7 @@ import React from "react";
 const WhoWeAreSection = () => {
   return (
     <section className="my-0 sm:my-20 md:my-24 lg:px-8">
-      <div class="max-w-[1320px] bg-[#FBEADC] max-lg:py-8 p-4 mx-auto grid grid-cols-1 lg:grid-cols-[4fr_3fr] items-center">
+      <div className="max-w-[1320px] bg-[#FBEADC] max-lg:py-8 p-4 mx-auto grid grid-cols-1 lg:grid-cols-[4fr_3fr] items-center">
         <div className="lg:p-16 text-lg font-extralight lg:max-w-xl">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 text-[#165620] font-medium leading-tight uppercase">
             Who We Are
