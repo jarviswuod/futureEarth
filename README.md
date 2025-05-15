@@ -1,7 +1,7 @@
 FutureEarth
 A React-based web application for promoting sustainable living and environmental awareness.
 Live Demo
-View Live Demo
+[View Live Demo](https://futurejarvisearth.netlify.app/)
 Framework
 This project is built with React and styled using Tailwind CSS.
 Getting Started
