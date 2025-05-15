@@ -1,8 +1,3 @@
-import React from "react";
-import HeroSection from "../common/HeroSection";
-import Header from "../common/Header";
-import Footer from "../common/Footer";
-import ContactInformationSection from "../components/ContactInformationSection";
 import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {

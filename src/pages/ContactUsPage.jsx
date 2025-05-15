@@ -1,6 +1,6 @@
 import React from "react";
 import HeroSection from "../common/HeroSection";
-import ContactInformationSection from "../components/ContactInformationSection";
+import ContactInformationSection from "../components/contact-us/ContactInformationSection";
 
 const ContactUsPage = () => {
   return (
