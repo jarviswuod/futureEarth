@@ -13,10 +13,10 @@ function App() {
 
   return (
     <>
-      {/* <HomePage /> */}
+      <HomePage />
       {/* <SustainableLivingPage /> */}
       {/* <OurStoryPage /> */}
-      <ContactUsPage />
+      {/* <ContactUsPage /> */}
     </>
   );
 }

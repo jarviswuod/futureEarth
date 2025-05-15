@@ -3,10 +3,10 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-[#165620] text-[#DBDBDB]">
-      <div className="max-w-[1320px] mx-auto pt-16 px-4">
-        <div className="grid grid-cols-4 mb-12 text-base font-extralight">
-          <ul className="flex flex-col gap-4 list-disc">
-            <li className="list-none text-2xl font-bold mb-4 -translate-x-6">
+      <div className="max-w-[1320px] mx-auto pt-8 sm:pt-12 md:pt-16 px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 mb-12 text-sm sm:text-base font-extralight">
+          <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
+            <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
               <h2>HOME</h2>
             </li>
             <li>OUR VISION / PROMISE</li>
@@ -16,16 +16,16 @@ const Footer = () => {
             <li>PARTNERS</li>
           </ul>
 
-          <ul className="flex flex-col gap-4 list-disc">
-            <li className="list-none text-2xl font-bold mb-4 -translate-x-6">
+          <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
+            <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
               <h2>SUSTAINABLE LIVING</h2>
             </li>
             <li>ABOUT SUSTAINABLE LIVING</li>
             <li>PRODUCT INTRODUCTION</li>
           </ul>
 
-          <ul className="flex flex-col gap-4 list-disc">
-            <li className="list-none text-2xl font-bold mb-4 -translate-x-6">
+          <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
+            <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
               <h2>OUR STORY</h2>
             </li>
             <li>WHAT WE DO</li>
@@ -34,8 +34,8 @@ const Footer = () => {
             <li>NEWS UPDATES</li>
           </ul>
 
-          <ul className="flex flex-col gap-4 list-disc">
-            <li className="list-none text-2xl font-bold mb-4 -translate-x-6">
+          <ul className="flex flex-col gap-1 sm:gap-2 md:gap-4 list-disc">
+            <li className="list-none text-xl sm:text-2xl font-bold mb-4 -translate-x-6">
               <h2>CONTACT US</h2>
             </li>
             <li>REGIONAL CONTACT US</li>
@@ -52,10 +52,12 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex items-center justify-between gap-4 py-6 border-t border-[#fbeadc25] font-extralight">
+        <div className="flex max-sm:flex-col items-stretch sm:items-center justify-between gap-4 py-6 border-none sm:border-t border-[#fbeadc25] font-extralight w-full divide-y-2 divide-[#fbeadc85]">
           <ul className="flex items-center gap-3">
             <li className="mr-3">
-              <p>Get In Touch</p>
+              <p className="max-sm:uppercase max-sm:text-lg max-sm:font-bold">
+                Get In Touch
+              </p>
             </li>
             <li>
               <a href="#">
@@ -88,7 +90,9 @@ const Footer = () => {
               </a>
             </li>
           </ul>
-          <p className="text-sm">@ 2021 Future Earth Sustainalbe Living</p>
+          <p className="text-sm max-sm:pt-2">
+            @ 2021 Future Earth Sustainalbe Living
+          </p>
         </div>
       </div>
     </footer>

@@ -2,42 +2,42 @@ import React from "react";
 
 const HomeBenefitsSection = () => {
   return (
-    <section className="my-24 px-8">
-      <div className="max-w-[1320px] py-16 px-4 bg-black text-white mx-auto flex flex-col items-center justify-center">
-        <h2 className="text-6xl text-[#FBEADC] font-medium leading-tight uppercase mb-8">
+    <section className="my-16 sm:my-20 md:my-24 lg:px-8">
+      <div className="max-w-[1320px] py-16 px-4 sm:px-8 bg-black text-white mx-auto flex flex-col md:items-center items-start justify-center">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl mb-6 lg:mb-8 text-[#FBEADC] font-medium leading-tight uppercase">
           Benefits
         </h2>
-        <p className="text-2xl font-extralight mb-20 text-center max-w-6xl">
+        <p className="text-2xl font-extralight mb-12 sm:mb-16 md:mb-20 text-start md:text-center max-w-6xl">
           The iRise houses are affordable, simple-to-build with sustainable wood
           and powered by renewable solar energy. In addition, they come with the
           following benefits:
         </p>
 
-        <ul className="max-w-5xl grid grid-cols-3 gap-12 text-xl font-extralight mb-12">
-          <li className="border border-[#fbeadc8a] rounded-base p-6 relative">
-            <h3 className="text-4xl text-[#FBEADC] font-bold p-2 absolute -top-8 -left-4 bg-black">
+        <ul className="max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-xl font-extralight mb-12">
+          <li className="border border-[#fbeadc8a] rounded-base max-sm:px-2 p-4 sm:p-6 relative max-md:flex items-center gap-4 max-md:divide-x-2 divide-[#fbeadc8a]">
+            <h3 className="text-4xl text-[#FBEADC] font-bold p-2 md:absolute -top-8 -left-4 bg-black">
               01
             </h3>
-            <p className="">
+            <p className="max-sm:pl-4 max-md:pl-8">
               The iRise housing structure can be mass-manufactured affordably.
             </p>
           </li>
 
-          <li className="border border-[#fbeadc8a] rounded-base p-6 relative">
-            <h3 className="text-4xl text-[#FBEADC] font-bold p-2 absolute -top-8 -left-4 bg-black">
+          <li className="border border-[#fbeadc8a] rounded-base max-sm:px-2 p-4 sm:p-6 relative max-md:flex items-center gap-4 max-md:divide-x-2 divide-[#fbeadc8a]">
+            <h3 className="text-4xl text-[#FBEADC] font-bold p-2 md:absolute -top-8 -left-4 bg-black">
               02
             </h3>
-            <p className="">
+            <p className="max-sm:pl-4 max-md:pl-8">
               The house is portable to maintain resale value and make the house
               financially viable.
             </p>
           </li>
 
-          <li className="border border-[#fbeadc8a] rounded-base p-6 relative">
-            <h3 className="text-4xl text-[#FBEADC] font-bold p-2 absolute -top-8 -left-4 bg-black">
+          <li className="border border-[#fbeadc8a] rounded-base max-sm:px-2 p-4 sm:p-6 relative max-md:flex items-center gap-4 max-md:divide-x-2 divide-[#fbeadc8a]">
+            <h3 className="text-4xl text-[#FBEADC] font-bold p-2 md:absolute -top-8 -left-4 bg-black">
               03
             </h3>
-            <p className="">
+            <p className="max-sm:pl-4 max-md:pl-8">
               The houses can be easily and quickly assembled on-site by
               inexperienced women and youth.
             </p>
