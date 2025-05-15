@@ -1,0 +1,56 @@
+[
+  {
+    "id": "solar",
+    "title": "Solar Power",
+    "icon": "/icons/solar_icon.svg",
+    "description": "Basic access to electricity improves safety, security, and productivity while reducing household expenses for lighting sources.",
+    "backgroundImage": "url('/images/solar_plant.jpg')",
+    "categoryBgColor": "bg-[#51A501]",
+    "categoryTitle": "Solar Panel"
+  },
+  {
+    "id": "toilet",
+    "title": "Waterless Toilet",
+    "icon": "/icons/toilet_icon.svg",
+    "description": "Provides sanitation without requiring water infrastructure, reducing disease and improving health outcomes for families.",
+    "backgroundImage": "url('/images/solar_plant.jpg')",
+    "categoryBgColor": "bg-[#165620F2]",
+    "categoryTitle": "Waterless Toilet"
+  },
+  {
+    "id": "mortgage",
+    "title": "Low-cost Mortgage",
+    "icon": "/icons/house_icon.svg",
+    "description": "Affordable financing options that make home ownership possible for low-income families, creating long-term stability.",
+    "backgroundImage": "url('/images/solar_plant.jpg')",
+    "categoryBgColor": "bg-[#165620E5]",
+    "categoryTitle": "Low-cost Mortgage"
+  },
+  {
+    "id": "garden",
+    "title": "Garden",
+    "icon": "/icons/tree_icon.svg",
+    "description": "Space to grow food and plants, improving nutrition, sustainability, and creating potential income opportunities.",
+    "backgroundImage": "url('/images/solar_plant.jpg')",
+    "categoryBgColor": "bg-[#165620F2]",
+    "categoryTitle": "Garden to Plant Trees"
+  },
+  {
+    "id": "cookstove",
+    "title": "Clean Cooking",
+    "icon": "/icons/fire_icon.svg",
+    "description": "Efficient cook-stoves reduce indoor air pollution, fuel usage, and time spent collecting fuel, while improving health outcomes.",
+    "backgroundImage": "url('/images/solar_plant.jpg')",
+    "categoryBgColor": "bg-[#225F2BF2]",
+    "categoryTitle": "Clean, Efficient Cook-stove"
+  },
+  {
+    "id": "internet",
+    "title": "Internet Access",
+    "icon": "/icons/internet_icon.svg",
+    "description": "Connectivity provides educational resources, economic opportunities, and access to information for rural communities.",
+    "backgroundImage": "url('/images/solar_plant.jpg')",
+    "categoryBgColor": "bg-[#2D6736E5]",
+    "categoryTitle": "Internet Access Device"
+  }
+]

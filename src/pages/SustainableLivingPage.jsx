@@ -2,8 +2,8 @@ import React from "react";
 
 import HeroSection from "../common/HeroSection";
 
-import AboutSustainableLivingSection from "../components/AboutSustainableLivingSection";
-import ProductIntroductionSection from "../components/ProductIntroductionSection";
+import AboutSustainableLivingSection from "../components/sustainable-living/AboutSustainableLivingSection";
+import ProductIntroductionSection from "../components/sustainable-living/ProductIntroductionSection";
 import OurPartnersSection from "../common/OurPartnersSection";
 
 const SustainableLivingPage = () => {
